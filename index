@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Helldivers: Galactic War Status</title>
+    <meta property="og:title" content="Helldivers: Galactic War Status">
+    <meta property="og:description" content="Helldivers: Galactic War Status - Live Map companion app showing current Liberation Campaigns and Defense Campaigns and their associated progression and percent complete.">
+    <meta name="description" content="Helldivers: Galactic War Status - Live Map companion app showing current Liberation Campaigns and Defense Campaigns and their associated progression and percent complete.">
+    <meta property="og:image" content="/ogimage.webp">
+    <meta name="twitter:card" content="/ogimage.webp">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/lib/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css?v=w1mNYuscKYj6pXZh4YNqMZBB0mZ41S5DLTlJqyAiRu0" />
+    <link rel="stylesheet" href="/HelldiversApi.styles.css?v=TuOyCjNIZJmn3M3hv4LIeR8RWoOyfVgcNPz2PJs-Rw8" />
+    <!-- Google tag (gtag.js) -->
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VFG0MGXJGD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-VFG0MGXJGD');
+    </script>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "l7ny3cas5y");
+    </script>
+    <script data-cfasync="false">
+        window.nitroAds = window.nitroAds || { createAd: function () { return new Promise(e => { window.nitroAds.queue.push(["createAd", arguments, e]) }) }, addUserToken: function () { window.nitroAds.queue.push(["addUserToken", arguments]) }, queue: [] };
+    </script>
+    <script data-cfasync="false" async src="https://s.nitropay.com/ads-1850.js"></script>
+</head>
+<body>
+    <header b-8ek7qo4bz6>
+        <nav b-8ek7qo4bz6 class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
+            <div b-8ek7qo4bz6 class="container">
+                <a class="navbar-brand" href="/">helldivers.io</a>
+                <button b-8ek7qo4bz6 class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span b-8ek7qo4bz6 class="navbar-toggler-icon"></span>
+                </button>
+                <div b-8ek7qo4bz6 class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul b-8ek7qo4bz6 class="navbar-nav flex-grow-1">
+                        <li b-8ek7qo4bz6 class="nav-item">
+                            <a class="nav-link" href="/">Galactic War</a>
+                        </li>
+                        <li b-8ek7qo4bz6 class="nav-item">
+                            <a class="nav-link" href="/SuperStore">Super Store</a>
+                        </li>
+                        <li b-8ek7qo4bz6 class="nav-item">
+                            <a class="nav-link" href="/Planets">Planets</a>
+                        </li>
+                        <li b-8ek7qo4bz6 class="nav-item">
+                            <a class="nav-link" href="/AdFree">AdFree</a>
+                        </li>
+                        <li b-8ek7qo4bz6 class="nav-item dropdown">
+                            <text b-8ek7qo4bz6 class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Database</text>
+                            <ul b-8ek7qo4bz6 class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li b-8ek7qo4bz6 class="nav-item">
+                                    <a class="nav-link" href="/Stratagems">Stratagems</a>
+                                </li>
+                                <li b-8ek7qo4bz6 class="nav-item">
+                                    <a class="nav-link" href="/Equipment">Equipment</a>
+                                </li>
+                                <li b-8ek7qo4bz6 class="nav-item">
+                                    <a class="nav-link" href="/CaptainsLog">History</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li b-8ek7qo4bz6>
+                            <a b-8ek7qo4bz6 class="nav-link" target="_blank" href="https://helldivers.io/discord">
+                                <svg b-8ek7qo4bz6 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-discord" viewBox="0 0 16 16">
+                                    <path b-8ek7qo4bz6 d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <div b-8ek7qo4bz6 class="container">
+        <main b-8ek7qo4bz6 role="main" class="pb-3">
+            
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://lipton-ice-tea.github.io/leaflet-canvas-markers/leaflet-canvas-markers.js"></script>
+<script src="https://jieter.github.io/Leaflet-semicircle/Semicircle.js"></script>
+<script src="https://yigityuce.github.io/Leaflet.Control.Custom/Leaflet.Control.Custom.js"></script>
+<!--<script src="/js/Sector.js"></script>-->
+    <div style="margin: auto; width:360px;" id="gwvideo">
+        This website is supported by ads. Please disable your adblocker or signup for a subscription for an ad-free experience.
+    </div>
+    <div id="hdanchor"></div>
+    <script>
+        window['nitroAds'].createAd('gwvideo', {
+            "format": "video-nc",
+            "video": {},
+        });
+        window['nitroAds'].createAd('hdanchor', {
+            "refreshTime": 30,
+            "format": "anchor",
+            "anchor": "bottom",
+            "anchorPersistClose": false,
+            "mediaQuery": "(min-width: 0px)",
+            "anchorBgColor": "#212529",
+            "report": {
+                "enabled": true,
+                "icon": true,
+                "wording": "Report Ad",
+                "position": "top-right"
+            },
+        });
+    </script>
+    <span data-ccpa-link="1"></span>
+<h1 style="text-align:center">Helldivers: Galactic War Status and Progression</h1>
+<!--</><h2>3/22 9am PST : Liberation progress is fixed (but method is changed). See the <a href="#theory">FAQ</a></h2>-->
+<div class="text-center">        
+    <div id="activeEvents" class="table-responsive">
+        <table id="eventTable" class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th>Planet</th>
+                    <th>Liberation</th>
+                    <th>Players</th>
+                    <th>Predicted Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Other Planets**</td>
+                    <td>0%</td>
+                    <td id="wasted">0K</td>
+                    <td></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <p>Not sure which planet to attack? Go to the one on the top of this list, prioritizing any that are part of the Major Order.</p>
+
+    <p>Total Players : <text id="playertotal">89K</text> | Super Earth Forces Contribution : <text id="ratetotal">0%</text></p>
+    <p id="enemyforcesrate"></p>
+    <div style="flex-grow: 1;width: 80%; margin:0 auto; height: 600px; background:#101010" id="map"></div>
+    <div id="lastupdated">Last Updated : 4 seconds ago</div>
+    <div style="text-align:start">
+        <h5>Helldivers Galactic War Status Info and FAQ</h5>
+        <p>In Helldivers 2, Super Earth is in a Galactic War with the Automatons (robots) and the Terminids (bugs). During gameplay, you can choose to either attack the robots or the bugs. There are roughly 8-12 planets at any given time that you are allowed to play on, with the ultimate goal of liberating the planets and restoring democracy.</p>
+        <p>The Galactic War status is global among all Helldivers players, and each and every Helldiver player victory contributes to liberating planets.</p>
+        <p>This site shows all of the planets that you can play on at any given time, whether to Liberate or Defend the planet from an attack. In addition, it shows the current Liberation progress as well as an estimated time for the planet to be complete</p>
+        <p>On the top of the site is a brief overview of the main movers in the Galactic War</p>
+        <p>If you click on a planet in the table, you can see the history.</p>
+        <p>On the map, there are pins for each active planet that includes its liberation status as well as the rate of liberation.</p>
+        <p id="liberationmath"><b>How does the math behind Liberation work?</b><ul>
+                <li>Each planet has an internal max HP. When attacking, the planet has 1000000. When defending, this varies from 600k-~2mil.</li>
+                <li>Each planet regens HP, usually ranging from 1.5% to 4.5% per hour, but has been seen as high as 20% per hour. The game master can change these values at any time. NOTE - defense campaign doesn't regen hp, it is purely timer based</li>
+                <li>Each Operation a Helldiver completes deals damage to the planet.</li>
+                <li>The automatons can also drop a giant nuke on planets to deplete some liberation. This can be seen on planets such as <a href="/Planets/tien-kwan">Tien Kwan</a>. These drastic dips in liberation have been 1-2%, occuring as much as 5-10 times to keep Super Earth at bay.
+                </ul>
+         <p><b>What is the new liberation calculation as of 3/21?</b>
+             <ul>
+             <li id="theory">The amount of damage you deal when completing an operation is equal to the experience, multiplied by an internal scaler (a combination of impact multiplier and some other variables).</li>
+                <li><b>The impact multiplier scales inversely with the [running average] total population.</b></li>
+                <li>What this means is the galaxy has a target goal at how much liberation can be done across the entire galaxy. Check out some graphs @ <a href="/Planets">Planets</a> for real data points.</b></li>
+                <!--<li>What this means is the galaxy has a target goal at how much liberation can be done across the entire galaxy. This is currently ~2.67% per hour. Check out some graphs @ <a href="/Planets">Planets</a> for real data points.</b></li>-->
+                <!--<li>If the theory is correct, this also means that when players AFK (or super credit farm), it is now negatively impacting the global war, as they are decreasing that impact multiplier.</li>-->
+                <li>This new method rewards higher difficulties (impact is based on experience) and community alignment (diverging efforts impacts the rates of each other) vs the previous method.</li>
+            </ul>
+            </p>
+        <p><b>Does abandoning an operation negatively impact the %?</b> No, it does not.</p>
+        <p id="planetreset"><b>[Outdated 3/21, the new system scales with total players online] Why do all the planets seem to reset their status everyday?</b> Bugs and bots DO NOT sleep, they are constantly pushing back (hp regen). So overnight, when Americans (the biggest player base) are sleeping, the bugs and bots take back a lot of the planet. See the 2nd bullet in how Liberation math works.</p>
+        <p><b>What is the deal with "Other Planets"?</b> This is people who are playing the game as an individual, and are having very little impact to the galactic war. They are dealing less damage than the planet regens health, so it's constantly at full health. NOTE - the game master can account for this, so they aren't negatively impacting the userbase. Edit 3/21 - This now negatively impacts the galactic war since there is a total impact that the galaxy can do and some of it is going to "Other Planets"</p>
+        <p><b>What are supply lines/connections on the map?</b> Check out <a href="https://reddit.com/r/Helldivers/comments/1b5u34s/galaxy_war_102_supply_lines_what_happens_to/">this great guide</a> on Reddit. </p>
+    </div>
+    <script>
+        var mapExtent = [0.00000000, -100.00000000, 100.00000000, 0.00000000];
+        var mapMinZoom = 0;
+        var mapMaxZoom = 4;
+        var mapMaxResolution = 0.100000000;
+        var mapMinResolution = Math.pow(2, mapMaxZoom) * mapMaxResolution;
+        var tileExtent = [0.00000000, -100.00000000, 100.00000000, 0.00000000];
+        var crs = L.CRS.Simple;
+        crs.transformation = new L.Transformation(1, -tileExtent[0], -1, tileExtent[3]);
+        crs.scale = function (zoom) {
+            return Math.pow(2, zoom) / mapMinResolution;
+        };
+        crs.zoom = function (scale) {
+            return Math.log(scale * mapMinResolution) / Math.LN2;
+        };
+        var map = new L.Map('map', {
+            maxZoom: mapMaxZoom,
+            minZoom: mapMinZoom,
+            crs: crs,
+            preferCanvas: true,
+            attributionControl: false,
+            zoomControl: false
+        });
+        L.control.zoom({
+            position: 'topright'
+        }).addTo(map);
+        L.imageOverlay('img/helldivers_sectormap_wtr.webp', [[-100.0, -100.0], [100.0, 100.0]], { opacity: 0.2 }).addTo(map);
+        /*var layer = L.tileLayer('https://assets.palworldtrainer.com/map/{z}/{x}/{y}.png', {
+            //minZoom: mapMinZoom, maxZoom: mapMaxZoom,
+            tileSize: L.point(512, 512),
+            noWrap: true,
+            tms: false,
+            minZoom: 0,
+            maxZoom: 4,
+        }).addTo(map);*/
+        //var c = L.control.layers(null, overlayMaps);
+        map.setView([0, 0], 2);
+        var campaign = new L.layerGroup();
+        var activePlayers = new L.layerGroup();
+        var others = new L.layerGroup();
+        var connections = new L.layerGroup();
+        var majorOrderLayer = new L.layerGroup();
+        var personalOrdersLayer = new L.layerGroup();
+        var warStatsLayer = new L.layerGroup();
+        var tooltipOffset = { offset: L.point({ x: 10, y: 0 }) };
+        //var tooltipOffset = { offset: L.point({ x: 9, y: -14 }) };
+        var icon = { url: 'https://unpkg.com/leaflet@1.0.3/dist/images/marker-icon-2x.png', size: [18, 28], offset: { x: 0, y: -14 }, };
+        var earth = { url: '/img/superearth.png', size: [292 / 4, 312 / 4], offset: { x: 0, y: 0 } };
+        function addArrow(p1, p2, tooltip) {
+            L.polyline([p1, p2], { color: 'yellow', weight: 2 }).bindTooltip(tooltip).addTo(connections);
+            var xDist = p2[0] - p1[0];
+            var yDist = p2[1] - p1[1];
+            var p3 = [p1[0] + xDist * 0.5, p1[1] + yDist * 0.5];
+            var dx = p3[0] - p1[0];
+            var dy = p3[1] - p1[1];
+            var angle = Math.atan2(dy, dx);
+            var arrowLen = 2;
+            var p4 = [p3[0] - arrowLen * Math.cos(angle - Math.PI / 6), p3[1] - arrowLen * Math.sin(angle - Math.PI / 6)];
+            var p5 = [p3[0] - arrowLen * Math.cos(angle + Math.PI / 6), p3[1] - arrowLen * Math.sin(angle + Math.PI / 6)];
+            L.polyline([p4, p3, p5], { color: 'yellow', weight: 2 }).bindTooltip(tooltip).addTo(connections);
+        }
+        function slug(s){
+            return s
+                .normalize('NFKD') // split accented characters into their base characters and diacritical marks
+                .replace(/[\u0300-\u036f]/g, '') // remove all the accents, which happen to be all in the \u03xx UNICODE block.
+                .trim() // trim leading or trailing whitespace
+                .toLowerCase() // cnvert to lowercase
+                .replace(/[^a-z0-9 -]/g, '') // remove non-alphanumeric characters
+                .replace(/\s+/g, '-') // replace spaces with hyphens
+                .replace(/-+/g, '-'); // remove consecutive hyphens
+        }
+        var planetData = {}
+        var planetXYToSlug = {}
+        function onPlanetClick(e) {
+            var planetSlug = planetXYToSlug[e.target._latlng.lng + '_' + e.target._latlng.lat];
+            const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            if (width > 992) window.location.href = '/planets/' + planetSlug;
+        }
+        function initPlanet(slugName, name, x, y, color) {
+            var campaigntooltip = planetData[slug(slugName)]['campaignTooltip'] = L.tooltip('');
+            var activetooltip = planetData[slug(slugName)]['activeTooltip'] = L.tooltip('');
+            var emptytooltip = planetData[slug(slugName)]['emptyTooltip'] = L.tooltip('');
+            planetXYToSlug[x + '_' + y] = slug(slugName);
+            campaigntooltip.setOpacity(0);
+            activetooltip.setOpacity(0);
+            emptytooltip.setContent(name);
+            emptytooltip.setOpacity(0);
+            planetData[slug(slugName)]['glowCircle'] = L.circle([y, x], { radius: 3, fillOpacity: 0, opacity: 0, color: 'gold' }).addTo(campaign).on('click', onPlanetClick);
+            planetData[slug(slugName)]['redSemicircle'] = L.semiCircle([y, x], { radius: 2, startAngle: 0, stopAngle: 360, color: 'red', fillOpacity: 0, opacity: 0 }).addTo(campaign).bindTooltip(campaigntooltip).on('click', onPlanetClick);
+            planetData[slug(slugName)]['greenSemicircle'] = L.semiCircle([y, x], { radius: 2, startAngle: 0, stopAngle: 360, color: 'green', fillOpacity: 0, opacity: 0 }).addTo(campaign).bindTooltip(campaigntooltip).on('click', onPlanetClick);
+            planetData[slug(slugName)]['activeCircle'] = L.circle([y, x], { radius: 2, fillOpacity: 0, opacity: 0 }).addTo(activePlayers).bindTooltip(activetooltip).on('click', onPlanetClick);
+            planetData[slug(slugName)]['emptyCircle'] = L.circle([y, x], { radius: 2, fillOpacity: 0, opacity: 0, color: color }).addTo(others).bindTooltip(emptytooltip).on('click', onPlanetClick);
+            
+        }
+            planetData[slug('super-earth')] = {};
+            planetData[slug('super-earth')].initialOwner = 'SuperEarth';
+                var activetooltip = planetData[slug('super-earth')]['activeTooltip'] = L.tooltip('');
+                planetData[slug('super-earth')]['greenMarker'] = L.canvasMarker([0, 0], { img: earth }).addTo(map).bindTooltip(activetooltip);
+                addArrow([0, 0], [10.565466, 5.373042], `SUPER EARTH -> KLEN DAHTH II`);
+            planetData[slug('klen-dahth-ii')] = {};
+            planetData[slug('klen-dahth-ii')].initialOwner = 'SuperEarth';
+                initPlanet('klen-dahth-ii', 'KLEN DAHTH II', 5.373042, 10.565466, 'blue');
+                addArrow([10.565466, 5.373042], [16.758724, 4.664221], `KLEN DAHTH II -> PATHFINDER V`);
+            planetData[slug('pathfinder-v')] = {};
+            planetData[slug('pathfinder-v')].initialOwner = 'SuperEarth';
+                initPlanet('pathfinder-v', 'PATHFINDER V', 4.664221, 16.758724, 'blue');
+                addArrow([16.758724, 4.664221], [11.821219, 12.536779], `PATHFINDER V -> WIDOW&#x27;S HARBOR`);
+            planetData[slug('widows-harbor')] = {};
+            planetData[slug('widows-harbor')].initialOwner = 'SuperEarth';
+                initPlanet('widows-harbor', 'WIDOW&#x27;S HARBOR', 12.536779, 11.821219, 'blue');
+                addArrow([11.821219, 12.536779], [5.7657113, 10.280278], `WIDOW&#x27;S HARBOR -> NEW HAVEN`);
+            planetData[slug('new-haven')] = {};
+            planetData[slug('new-haven')].initialOwner = 'SuperEarth';
+                initPlanet('new-haven', 'NEW HAVEN', 10.280278, 5.7657113, 'blue');
+                addArrow([5.7657113, 10.280278], [4.3583164, 15.988355], `NEW HAVEN -> PILEN V`);
+            planetData[slug('pilen-v')] = {};
+            planetData[slug('pilen-v')].initialOwner = 'SuperEarth';
+                initPlanet('pilen-v', 'PILEN V', 15.988355, 4.3583164, 'blue');
+            planetData[slug('hydrofall-prime')] = {};
+            planetData[slug('hydrofall-prime')].initialOwner = 'SuperEarth';
+                initPlanet('hydrofall-prime', 'HYDROFALL PRIME', 13.535836, -3.3789477, 'blue');
+                addArrow([-3.3789477, 13.535836], [-8.101245, 9.485684], `HYDROFALL PRIME -> DARROWSPORT`);
+            planetData[slug('zea-rugosia')] = {};
+            planetData[slug('zea-rugosia')].initialOwner = 'SuperEarth';
+                initPlanet('zea-rugosia', 'ZEA RUGOSIA', 36.15922, -52.270126, 'blue');
+                addArrow([-52.270126, 36.15922], [-45.89719, 45.89794], `ZEA RUGOSIA -> HALDUS`);
+                addArrow([-52.270126, 36.15922], [-58.803867, 27.001774], `ZEA RUGOSIA -> HERTHON SECUNDUS`);
+            planetData[slug('darrowsport')] = {};
+            planetData[slug('darrowsport')].initialOwner = 'SuperEarth';
+                initPlanet('darrowsport', 'DARROWSPORT', 9.485684, -8.101245, 'blue');
+                addArrow([-8.101245, 9.485684], [0, 0], `DARROWSPORT -> SUPER EARTH`);
+                addArrow([-8.101245, 9.485684], [-9.685686, 15.801244], `DARROWSPORT -> FORNSKOGUR II`);
+            planetData[slug('fornskogur-ii')] = {};
+            planetData[slug('fornskogur-ii')].initialOwner = 'SuperEarth';
+                initPlanet('fornskogur-ii', 'FORNSKOGUR II', 15.801244, -9.685686, 'blue');
+                addArrow([-9.685686, 15.801244], [-3.3789477, 13.535836], `FORNSKOGUR II -> HYDROFALL PRIME`);
+                addArrow([-9.685686, 15.801244], [-14.489349, 6.770126], `FORNSKOGUR II -> MIDASBURG`);
+                addArrow([-9.685686, 15.801244], [-9.76583, 23.037382], `FORNSKOGUR II -> VEIL`);
+                addArrow([-9.685686, 15.801244], [-14.909519, 20.077171], `FORNSKOGUR II -> MARRE IV`);
+            planetData[slug('midasburg')] = {};
+            planetData[slug('midasburg')].initialOwner = 'SuperEarth';
+                initPlanet('midasburg', 'MIDASBURG', 6.770126, -14.489349, 'blue');
+            planetData[slug('cerberus-iiic')] = {};
+            planetData[slug('cerberus-iiic')].initialOwner = 'SuperEarth';
+                initPlanet('cerberus-iiic', 'CERBERUS IIIc', 0.1789452, -18.935835, 'blue');
+                addArrow([-18.935835, 0.1789452], [-12.535837, -0.1789474], `CERBERUS IIIc -> PROSPERITY FALLS`);
+                addArrow([-18.935835, 0.1789452], [-22.407753, 9.77173], `CERBERUS IIIc -> SEYSHEL BEACH`);
+            planetData[slug('prosperity-falls')] = {};
+            planetData[slug('prosperity-falls')].initialOwner = 'SuperEarth';
+                initPlanet('prosperity-falls', 'PROSPERITY FALLS', -0.1789474, -12.535837, 'blue');
+            planetData[slug('okul-vi')] = {};
+            planetData[slug('okul-vi')].initialOwner = 'SuperEarth';
+                initPlanet('okul-vi', 'OKUL VI', -6.158319, -16.488354, 'blue');
+                addArrow([-16.488354, -6.158319], [-20.27717, -14.40952], `OKUL VI -> DILUVIA`);
+            planetData[slug('martyrs-bay')] = {};
+            planetData[slug('martyrs-bay')].initialOwner = 'SuperEarth';
+                initPlanet('martyrs-bay', 'MARTYR&#x27;S BAY', -9.901246, -11.185683, 'blue');
+                addArrow([-11.185683, -9.901246], [0, 0], `MARTYR&#x27;S BAY -> SUPER EARTH`);
+                addArrow([-11.185683, -9.901246], [-8.865711, -17.010405], `MARTYR&#x27;S BAY -> FREEDOM PEAK`);
+            planetData[slug('freedom-peak')] = {};
+            planetData[slug('freedom-peak')].initialOwner = 'SuperEarth';
+                initPlanet('freedom-peak', 'FREEDOM PEAK', -17.010405, -8.865711, 'blue');
+                addArrow([-8.865711, -17.010405], [-14.480585, -19.187984], `FREEDOM PEAK -> VIRIDIA PRIME`);
+            planetData[slug('fort-union')] = {};
+            planetData[slug('fort-union')].initialOwner = 'SuperEarth';
+                initPlanet('fort-union', 'FORT UNION', 27.240774, 20.429876, 'blue');
+                addArrow([20.429876, 27.240774], [10.99696, 28.788399], `FORT UNION -> IVIS`);
+                addArrow([20.429876, 27.240774], [25.839266, 32.492584], `FORT UNION -> CIRRUS`);
+                addArrow([20.429876, 27.240774], [15.48962, 33.707794], `FORT UNION -> MORADESH`);
+            planetData[slug('kelvinor')] = {};
+            planetData[slug('kelvinor')].initialOwner = 'SuperEarth';
+                initPlanet('kelvinor', 'KELVINOR', -14.765465, -3.0730395, 'blue');
+                addArrow([-3.0730395, -14.765465], [-8.865711, -17.010405], `KELVINOR -> FREEDOM PEAK`);
+            planetData[slug('wraith')] = {};
+            planetData[slug('wraith')].initialOwner = 'SuperEarth';
+                initPlanet('wraith', 'WRAITH', -15.065464, 1.5730455, 'blue');
+                addArrow([1.5730455, -15.065464], [-3.3197637, -24.15232], `WRAITH -> MYRADESH`);
+            planetData[slug('igla')] = {};
+            planetData[slug('igla')].initialOwner = 'SuperEarth';
+                initPlanet('igla', 'IGLA', -17.289349, 6.970126, 'blue');
+                addArrow([6.970126, -17.289349], [11.136782, -12.621214], `IGLA -> NEW KIRUNA`);
+                addArrow([6.970126, -17.289349], [9.9658375, -24.737381], `IGLA -> EMERIA`);
+            planetData[slug('new-kiruna')] = {};
+            planetData[slug('new-kiruna')].initialOwner = 'SuperEarth';
+                initPlanet('new-kiruna', 'NEW KIRUNA', -12.621214, 11.136782, 'blue');
+                addArrow([11.136782, -12.621214], [10.585686, -7.801243], `NEW KIRUNA -> FORT JUSTICE`);
+            planetData[slug('fort-justice')] = {};
+            planetData[slug('fort-justice')].initialOwner = 'SuperEarth';
+                initPlanet('fort-justice', 'FORT JUSTICE', -7.801243, 10.585686, 'blue');
+                addArrow([10.585686, -7.801243], [0, 0], `FORT JUSTICE -> SUPER EARTH`);
+                addArrow([10.585686, -7.801243], [14.535835, -3.9789412], `FORT JUSTICE -> ZEGEMA PARADISE`);
+            planetData[slug('zegema-paradise')] = {};
+            planetData[slug('zegema-paradise')].initialOwner = 'SuperEarth';
+                initPlanet('zegema-paradise', 'ZEGEMA PARADISE', -3.9789412, 14.535835, 'blue');
+            planetData[slug('providence')] = {};
+            planetData[slug('providence')].initialOwner = 'SuperEarth';
+                initPlanet('providence', 'PROVIDENCE', 3.0315776, 22.69306, 'blue');
+                addArrow([22.69306, 3.0315776], [25.608747, 9.383544], `PROVIDENCE -> PRIMORDIA`);
+            planetData[slug('primordia')] = {};
+            planetData[slug('primordia')].initialOwner = 'SuperEarth';
+                initPlanet('primordia', 'PRIMORDIA', 9.383544, 25.608747, 'blue');
+                addArrow([25.608747, 9.383544], [33.458267, 11.29696], `PRIMORDIA -> IRIDICA`);
+            planetData[slug('sulfura')] = {};
+            planetData[slug('sulfura')].initialOwner = 'SuperEarth';
+                initPlanet('sulfura', 'SULFURA', 17.00952, 18.77717, 'blue');
+                addArrow([18.77717, 17.00952], [12.409518, 21.17717], `SULFURA -> NUBLARIA I`);
+            planetData[slug('nublaria-i')] = {};
+            planetData[slug('nublaria-i')].initialOwner = 'SuperEarth';
+                initPlanet('nublaria-i', 'NUBLARIA I', 21.17717, 12.409518, 'blue');
+                addArrow([12.409518, 21.17717], [5.583542, 25.40875], `NUBLARIA I -> KRAKATWO`);
+            planetData[slug('krakatwo')] = {};
+            planetData[slug('krakatwo')].initialOwner = 'SuperEarth';
+                initPlanet('krakatwo', 'KRAKATWO', 25.40875, 5.583542, 'blue');
+            planetData[slug('volterra')] = {};
+            planetData[slug('volterra')].initialOwner = 'SuperEarth';
+                initPlanet('volterra', 'VOLTERRA', 29.393059, -3.3684242, 'blue');
+                addArrow([-3.3684242, 29.393059], [-2.9197698, 22.952318], `VOLTERRA -> CRUCIBLE`);
+                addArrow([-3.3684242, 29.393059], [-12.3842125, 32.650284], `VOLTERRA -> CARAMOOR`);
+            planetData[slug('crucible')] = {};
+            planetData[slug('crucible')].initialOwner = 'SuperEarth';
+                initPlanet('crucible', 'CRUCIBLE', 22.952318, -2.9197698, 'blue');
+            planetData[slug('veil')] = {};
+            planetData[slug('veil')].initialOwner = 'SuperEarth';
+                initPlanet('veil', 'VEIL', 23.037382, -9.76583, 'blue');
+                addArrow([-9.76583, 23.037382], [-14.909519, 20.077171], `VEIL -> MARRE IV`);
+            planetData[slug('marre-iv')] = {};
+            planetData[slug('marre-iv')].initialOwner = 'SuperEarth';
+                initPlanet('marre-iv', 'MARRE IV', 20.077171, -14.909519, 'blue');
+            planetData[slug('fort-sanctuary')] = {};
+            planetData[slug('fort-sanctuary')].initialOwner = 'SuperEarth';
+                initPlanet('fort-sanctuary', 'FORT SANCTUARY', 15.409517, -21.0073, 'blue');
+                addArrow([-21.0073, 15.409517], [-22.407753, 9.77173], `FORT SANCTUARY -> SEYSHEL BEACH`);
+            planetData[slug('seyshel-beach')] = {};
+            planetData[slug('seyshel-beach')].initialOwner = 'SuperEarth';
+                initPlanet('seyshel-beach', 'SEYSHEL BEACH', 9.77173, -22.407753, 'blue');
+            planetData[slug('hellmire')] = {};
+            planetData[slug('hellmire')].initialOwner = 'Terminids';
+                initPlanet('hellmire', 'HELLMIRE', 51.11386, 35.11805, 'blue');
+                addArrow([35.11805, 51.11386], [27.418608, 46.994884], `HELLMIRE -> FENRIR III`);
+                addArrow([35.11805, 51.11386], [34.833485, 42.43272], `HELLMIRE -> ERATA PRIME`);
+                addArrow([35.11805, 51.11386], [29.137207, 58.036972], `HELLMIRE -> ESTANU`);
+                addArrow([35.11805, 51.11386], [43.328552, 48.89177], `HELLMIRE -> NIVEL 43`);
+            planetData[slug('effluvia')] = {};
+            planetData[slug('effluvia')].initialOwner = 'SuperEarth';
+                initPlanet('effluvia', 'EFFLUVIA', -2.3138678, -24.981945, 'blue');
+                addArrow([-24.981945, -2.3138678], [-18.935835, 0.1789452], `EFFLUVIA -> CERBERUS IIIc`);
+            planetData[slug('solghast')] = {};
+            planetData[slug('solghast')].initialOwner = 'SuperEarth';
+                initPlanet('solghast', 'SOLGHAST', -9.065833, -24.13738, 'blue');
+                addArrow([-24.13738, -9.065833], [-20.27717, -14.40952], `SOLGHAST -> DILUVIA`);
+            planetData[slug('diluvia')] = {};
+            planetData[slug('diluvia')].initialOwner = 'SuperEarth';
+                initPlanet('diluvia', 'DILUVIA', -14.40952, -20.27717, 'blue');
+            planetData[slug('viridia-prime')] = {};
+            planetData[slug('viridia-prime')].initialOwner = 'SuperEarth';
+                initPlanet('viridia-prime', 'VIRIDIA PRIME', -19.187984, -14.480585, 'blue');
+                addArrow([-14.480585, -19.187984], [-10.283538, -24.438877], `VIRIDIA PRIME -> OBARI`);
+            planetData[slug('obari')] = {};
+            planetData[slug('obari')].initialOwner = 'SuperEarth';
+                initPlanet('obari', 'OBARI', -24.438877, -10.283538, 'blue');
+            planetData[slug('myradesh')] = {};
+            planetData[slug('myradesh')].initialOwner = 'SuperEarth';
+                initPlanet('myradesh', 'MYRADESH', -24.15232, -3.3197637, 'blue');
+                addArrow([-3.3197637, -24.15232], [3.0138721, -25.681942], `MYRADESH -> ATRAMA`);
+            planetData[slug('atrama')] = {};
+            planetData[slug('atrama')].initialOwner = 'SuperEarth';
+                initPlanet('atrama', 'ATRAMA', -25.681942, 3.0138721, 'blue');
+                addArrow([3.0138721, -25.681942], [-5.0842032, -33.550285], `ATRAMA -> MAW`);
+            planetData[slug('emeria')] = {};
+            planetData[slug('emeria')].initialOwner = 'SuperEarth';
+                initPlanet('emeria', 'EMERIA', -24.737381, 9.9658375, 'blue');
+            planetData[slug('barabos')] = {};
+            planetData[slug('barabos')].initialOwner = 'SuperEarth';
+                initPlanet('barabos', 'BARABOS', -18.577171, 13.809519, 'blue');
+                addArrow([13.809519, -18.577171], [19.577173, -16.809515], `BARABOS -> FENMIRE`);
+            planetData[slug('fenmire')] = {};
+            planetData[slug('fenmire')].initialOwner = 'SuperEarth';
+                initPlanet('fenmire', 'FENMIRE', -16.809515, 19.577173, 'blue');
+                addArrow([19.577173, -16.809515], [21.259932, -24.490278], `FENMIRE -> CURIA`);
+            planetData[slug('mastia')] = {};
+            planetData[slug('mastia')].initialOwner = 'SuperEarth';
+                initPlanet('mastia', 'MASTIA', -13.065825, 30.637383, 'blue');
+                addArrow([30.637383, -13.065825], [28.325823, -20.995455], `MASTIA -> TARSH`);
+            planetData[slug('shallus')] = {};
+            planetData[slug('shallus')].initialOwner = 'SuperEarth';
+                initPlanet('shallus', 'SHALLUS', -6.1315694, 24.89306, 'blue');
+                addArrow([24.89306, -6.1315694], [36.486412, -5.373336], `SHALLUS -> SHELT`);
+            planetData[slug('krakabos')] = {};
+            planetData[slug('krakabos')].initialOwner = 'SuperEarth';
+                initPlanet('krakabos', 'KRAKABOS', 3.7842083, 32.250286, 'blue');
+                addArrow([32.250286, 3.7842083], [33.458267, 11.29696], `KRAKABOS -> IRIDICA`);
+            planetData[slug('iridica')] = {};
+            planetData[slug('iridica')].initialOwner = 'SuperEarth';
+                initPlanet('iridica', 'IRIDICA', 11.29696, 33.458267, 'blue');
+                addArrow([33.458267, 11.29696], [40.307793, 16.61038], `IRIDICA -> VALGAARD`);
+            planetData[slug('azterra')] = {};
+            planetData[slug('azterra')].initialOwner = 'SuperEarth';
+                initPlanet('azterra', 'AZTERRA', 22.19546, 27.725819, 'blue');
+                addArrow([27.725819, 22.19546], [34.7748, 26.528116], `AZTERRA -> TERREK`);
+            planetData[slug('azur-secundus')] = {};
+            planetData[slug('azur-secundus')].initialOwner = 'Terminids';
+                initPlanet('azur-secundus', 'AZUR SECUNDUS', 87.39029, 35.35993, 'orange');
+                addArrow([35.35993, 87.39029], [18.509296, 91.152885], `AZUR SECUNDUS -> OVERGOE PRIME`);
+            planetData[slug('ivis')] = {};
+            planetData[slug('ivis')].initialOwner = 'SuperEarth';
+                initPlanet('ivis', 'IVIS', 28.788399, 10.99696, 'blue');
+                addArrow([10.99696, 28.788399], [5.460588, 33.868797], `IVIS -> SLIF`);
+                addArrow([10.99696, 28.788399], [15.48962, 33.707794], `IVIS -> MORADESH`);
+            planetData[slug('slif')] = {};
+            planetData[slug('slif')].initialOwner = 'SuperEarth';
+                initPlanet('slif', 'SLIF', 33.868797, 5.460588, 'blue');
+                addArrow([5.460588, 33.868797], [7.31322, 43.926025], `SLIF -> VELD`);
+            planetData[slug('caramoor')] = {};
+            planetData[slug('caramoor')].initialOwner = 'SuperEarth';
+                initPlanet('caramoor', 'CARAMOOR', 32.650284, -12.3842125, 'blue');
+            planetData[slug('kharst')] = {};
+            planetData[slug('kharst')].initialOwner = 'SuperEarth';
+                initPlanet('kharst', 'KHARST', 26.874065, -21.253326, 'blue');
+            planetData[slug('eukoria')] = {};
+            planetData[slug('eukoria')].initialOwner = 'SuperEarth';
+                initPlanet('eukoria', 'EUKORIA', 19.353323, -28.004192, 'blue');
+                addArrow([-28.004192, 19.353323], [-30.758274, 12.6969595], `EUKORIA -> MYRIUM`);
+            planetData[slug('myrium')] = {};
+            planetData[slug('myrium')].initialOwner = 'SuperEarth';
+                initPlanet('myrium', 'MYRIUM', 12.6969595, -30.758274, 'blue');
+            planetData[slug('kerth-secundus')] = {};
+            planetData[slug('kerth-secundus')].initialOwner = 'SuperEarth';
+                initPlanet('kerth-secundus', 'KERTH SECUNDUS', 4.284205, -33.550285, 'blue');
+                addArrow([-33.550285, 4.284205], [-32.750286, -3.8842108], `KERTH SECUNDUS -> PARSH`);
+                addArrow([-33.550285, 4.284205], [-40.526028, 6.113215], `KERTH SECUNDUS -> GRAFMERE`);
+            planetData[slug('parsh')] = {};
+            planetData[slug('parsh')].initialOwner = 'SuperEarth';
+                initPlanet('parsh', 'PARSH', -3.8842108, -32.750286, 'blue');
+            planetData[slug('reaf')] = {};
+            planetData[slug('reaf')].initialOwner = 'SuperEarth';
+                initPlanet('reaf', 'REAF', -11.379249, -32.15678, 'blue');
+                addArrow([-32.15678, -11.379249], [-28.30419, -19.95333], `REAF -> IRULTA`);
+                addArrow([-32.15678, -11.379249], [-40.1058, -13.786763], `REAF -> OUTPOST 32`);
+            planetData[slug('irulta')] = {};
+            planetData[slug('irulta')].initialOwner = 'SuperEarth';
+                initPlanet('irulta', 'IRULTA', -19.95333, -28.30419, 'blue');
+            planetData[slug('emorath')] = {};
+            planetData[slug('emorath')].initialOwner = 'SuperEarth';
+                initPlanet('emorath', 'EMORATH', -26.690287, -23.559927, 'blue');
+                addArrow([-23.559927, -26.690287], [-16.096954, -28.988405], `EMORATH -> ILDUNA PRIME`);
+            planetData[slug('ilduna-prime')] = {};
+            planetData[slug('ilduna-prime')].initialOwner = 'SuperEarth';
+                initPlanet('ilduna-prime', 'ILDUNA PRIME', -28.988405, -16.096954, 'blue');
+            planetData[slug('maw')] = {};
+            planetData[slug('maw')].initialOwner = 'SuperEarth';
+                initPlanet('maw', 'MAW', -33.550285, -5.0842032, 'blue');
+            planetData[slug('meridia')] = {};
+            planetData[slug('meridia')].initialOwner = 'Terminids';
+                initPlanet('meridia', 'MERIDIA', 51.349716, 20.684212, 'blue');
+                addArrow([20.684212, 51.349716], [22.880854, 61.13544], `MERIDIA -> CRIMSICA`);
+                addArrow([20.684212, 51.349716], [11.823792, 53.48745], `MERIDIA -> TURING`);
+                addArrow([20.684212, 51.349716], [16.18837, 44.48446], `MERIDIA -> ANGEL&#x27;S VENTURE`);
+                addArrow([20.684212, 51.349716], [29.137207, 58.036972], `MERIDIA -> ESTANU`);
+            planetData[slug('borea')] = {};
+            planetData[slug('borea')].initialOwner = 'SuperEarth';
+                initPlanet('borea', 'BOREA', -31.756773, 13.179255, 'blue');
+                addArrow([13.179255, -31.756773], [5.68677, -34.9058], `BOREA -> GUNVALD`);
+            planetData[slug('curia')] = {};
+            planetData[slug('curia')].initialOwner = 'SuperEarth';
+                initPlanet('curia', 'CURIA', -24.490278, 21.259932, 'blue');
+                addArrow([21.259932, -24.490278], [28.325823, -20.995455], `CURIA -> TARSH`);
+            planetData[slug('tarsh')] = {};
+            planetData[slug('tarsh')].initialOwner = 'SuperEarth';
+                initPlanet('tarsh', 'TARSH', -20.995455, 28.325823, 'blue');
+            planetData[slug('shelt')] = {};
+            planetData[slug('shelt')].initialOwner = 'SuperEarth';
+                initPlanet('shelt', 'SHELT', -5.373336, 36.486412, 'blue');
+                addArrow([36.486412, -5.373336], [44.539173, -6.0664835], `SHELT -> IMBER`);
+                addArrow([36.486412, -5.373336], [41.42603, -16.213205], `SHELT -> GAELLIVARE`);
+            planetData[slug('imber')] = {};
+            planetData[slug('imber')].initialOwner = 'SuperEarth';
+                initPlanet('imber', 'IMBER', -6.0664835, 44.539173, 'blue');
+                addArrow([44.539173, -6.0664835], [41.42603, -16.213205], `IMBER -> GAELLIVARE`);
+            planetData[slug('blistica')] = {};
+            planetData[slug('blistica')].initialOwner = 'SuperEarth';
+                initPlanet('blistica', 'BLISTICA', -17.16316, 80.50751, 'blue');
+            planetData[slug('ratch')] = {};
+            planetData[slug('ratch')].initialOwner = 'SuperEarth';
+                initPlanet('ratch', 'RATCH', 4.41322, 42.626022, 'blue');
+                addArrow([42.626022, 4.41322], [40.307793, 16.61038], `RATCH -> VALGAARD`);
+            planetData[slug('julheim')] = {};
+            planetData[slug('julheim')].initialOwner = 'SuperEarth';
+                initPlanet('julheim', 'JULHEIM', -52.319145, 14.335436, 'blue');
+                addArrow([14.335436, -52.319145], [5.410378, -53.1078], `JULHEIM -> DOLPH`);
+                addArrow([14.335436, -52.319145], [21.397131, -48.401085], `JULHEIM -> BEKVAM III`);
+            planetData[slug('valgaard')] = {};
+            planetData[slug('valgaard')].initialOwner = 'SuperEarth';
+                initPlanet('valgaard', 'VALGAARD', 16.61038, 40.307793, 'blue');
+            planetData[slug('arkturus')] = {};
+            planetData[slug('arkturus')].initialOwner = 'SuperEarth';
+                initPlanet('arkturus', 'ARKTURUS', 25.597132, 52.60108, 'blue');
+                addArrow([52.60108, 25.597132], [58.65483, 19.694271], `ARKTURUS -> WILFORD STATION`);
+                addArrow([52.60108, 25.597132], [64.15732, 28.023794], `ARKTURUS -> PIONEER II`);
+            planetData[slug('esker')] = {};
+            planetData[slug('esker')].initialOwner = 'SuperEarth';
+                initPlanet('esker', 'ESKER', 37.2748, 50.828117, 'blue');
+                addArrow([50.828117, 37.2748], [55.13042, 46.854145], `ESKER -> ERSON SANDS`);
+                addArrow([50.828117, 37.2748], [60.09798, 39.94094], `ESKER -> SOCORRO III`);
+            planetData[slug('terrek')] = {};
+            planetData[slug('terrek')].initialOwner = 'SuperEarth';
+                initPlanet('terrek', 'TERREK', 26.528116, 34.7748, 'blue');
+            planetData[slug('cirrus')] = {};
+            planetData[slug('cirrus')].initialOwner = 'SuperEarth';
+                initPlanet('cirrus', 'CIRRUS', 32.492584, 25.839266, 'blue');
+            planetData[slug('crimsica')] = {};
+            planetData[slug('crimsica')].initialOwner = 'Terminids';
+                initPlanet('crimsica', 'CRIMSICA', 61.13544, 22.880854, 'blue');
+                addArrow([22.880854, 61.13544], [29.137207, 58.036972], `CRIMSICA -> ESTANU`);
+                addArrow([22.880854, 61.13544], [30.101782, 68.803856], `CRIMSICA -> FORI PRIME`);
+            planetData[slug('heeth')] = {};
+            planetData[slug('heeth')].initialOwner = 'Terminids';
+                initPlanet('heeth', 'HEETH', 39.437927, 27.310377, 'blue');
+                addArrow([27.310377, 39.437927], [25.839266, 32.492584], `HEETH -> CIRRUS`);
+                addArrow([27.310377, 39.437927], [27.418608, 46.994884], `HEETH -> FENRIR III`);
+                addArrow([27.310377, 39.437927], [34.833485, 42.43272], `HEETH -> ERATA PRIME`);
+            planetData[slug('veld')] = {};
+            planetData[slug('veld')].initialOwner = 'SuperEarth';
+                initPlanet('veld', 'VELD', 43.926025, 7.31322, 'blue');
+                addArrow([7.31322, 43.926025], [15.48962, 33.707794], `VELD -> MORADESH`);
+                addArrow([7.31322, 43.926025], [16.18837, 44.48446], `VELD -> ANGEL&#x27;S VENTURE`);
+            planetData[slug('alta-v')] = {};
+            planetData[slug('alta-v')].initialOwner = 'SuperEarth';
+                initPlanet('alta-v', 'ALTA V', 36.60751, -4.763163, 'blue');
+                addArrow([-4.763163, 36.60751], [-3.3684242, 29.393059], `ALTA V -> VOLTERRA`);
+                addArrow([-4.763163, 36.60751], [-6.207318, 44.555653], `ALTA V -> INARI`);
+            planetData[slug('ursica-xi')] = {};
+            planetData[slug('ursica-xi')].initialOwner = 'SuperEarth';
+                initPlanet('ursica-xi', 'URSICA XI', 53.40751, -9.036843, 'blue');
+                addArrow([-9.036843, 53.40751], [-3.5894756, 57.06473], `URSICA XI -> ACHIRD III`);
+            planetData[slug('inari')] = {};
+            planetData[slug('inari')].initialOwner = 'SuperEarth';
+                initPlanet('inari', 'INARI', 44.555653, -6.207318, 'blue');
+            planetData[slug('skaash')] = {};
+            planetData[slug('skaash')].initialOwner = 'SuperEarth';
+                initPlanet('skaash', 'SKAASH', 41.835438, -17.080853, 'blue');
+                addArrow([-17.080853, 41.835438], [-21.4238, 49.857323], `SKAASH -> ACRAB XI`);
+            planetData[slug('moradesh')] = {};
+            planetData[slug('moradesh')].initialOwner = 'SuperEarth';
+                initPlanet('moradesh', 'MORADESH', 33.707794, 15.48962, 'blue');
+                addArrow([15.48962, 33.707794], [25.839266, 32.492584], `MORADESH -> CIRRUS`);
+            planetData[slug('rasp')] = {};
+            planetData[slug('rasp')].initialOwner = 'SuperEarth';
+                initPlanet('rasp', 'RASP', 39.501083, -26.197136, 'blue');
+                addArrow([-26.197136, 39.501083], [-26.339266, 32.492584], `RASP -> BASHYR`);
+            planetData[slug('bashyr')] = {};
+            planetData[slug('bashyr')].initialOwner = 'SuperEarth';
+                initPlanet('bashyr', 'BASHYR', 32.492584, -26.339266, 'blue');
+                addArrow([-26.339266, 32.492584], [-21.253326, 26.874065], `BASHYR -> KHARST`);
+            planetData[slug('regnus')] = {};
+            planetData[slug('regnus')].initialOwner = 'SuperEarth';
+                initPlanet('regnus', 'REGNUS', 24.639263, -31.59259, 'blue');
+                addArrow([-31.59259, 24.639263], [-28.004192, 19.353323], `REGNUS -> EUKORIA`);
+                addArrow([-31.59259, 24.639263], [-35.32812, 29.074797], `REGNUS -> MOG`);
+            planetData[slug('mog')] = {};
+            planetData[slug('mog')].initialOwner = 'SuperEarth';
+                initPlanet('mog', 'MOG', 29.074797, -35.32812, 'blue');
+            planetData[slug('valmox')] = {};
+            planetData[slug('valmox')].initialOwner = 'SuperEarth';
+                initPlanet('valmox', 'VALMOX', 18.610376, -38.1078, 'blue');
+                addArrow([-38.1078, 18.610376], [-43.73544, 15.380848], `VALMOX -> IRO`);
+            planetData[slug('iro')] = {};
+            planetData[slug('iro')].initialOwner = 'SuperEarth';
+                initPlanet('iro', 'IRO', 15.380848, -43.73544, 'blue');
+                addArrow([-43.73544, 15.380848], [-40.526028, 6.113215], `IRO -> GRAFMERE`);
+            planetData[slug('grafmere')] = {};
+            planetData[slug('grafmere')].initialOwner = 'SuperEarth';
+                initPlanet('grafmere', 'GRAFMERE', 6.113215, -40.526028, 'blue');
+                addArrow([-40.526028, 6.113215], [-44.40751, 0.063157], `GRAFMERE -> OASIS`);
+            planetData[slug('new-stockholm')] = {};
+            planetData[slug('new-stockholm')].initialOwner = 'SuperEarth';
+                initPlanet('new-stockholm', 'NEW STOCKHOLM', 14.707311, -50.955658, 'blue');
+                addArrow([-50.955658, 14.707311], [-49.157326, 21.723791], `NEW STOCKHOLM -> AIN-5`);
+            planetData[slug('oasis')] = {};
+            planetData[slug('oasis')].initialOwner = 'SuperEarth';
+                initPlanet('oasis', 'OASIS', 0.063157, -44.40751, 'blue');
+                addArrow([-44.40751, 0.063157], [-44.35565, -7.6073236], `OASIS -> GENESIS PRIME`);
+            planetData[slug('genesis-prime')] = {};
+            planetData[slug('genesis-prime')].initialOwner = 'SuperEarth';
+                initPlanet('genesis-prime', 'GENESIS PRIME', -7.6073236, -44.35565, 'blue');
+            planetData[slug('outpost-32')] = {};
+            planetData[slug('outpost-32')].initialOwner = 'SuperEarth';
+                initPlanet('outpost-32', 'OUTPOST 32', -13.786763, -40.1058, 'blue');
+                addArrow([-40.1058, -13.786763], [-42.437923, -21.110376], `OUTPOST 32 -> CALYPSO`);
+            planetData[slug('calypso')] = {};
+            planetData[slug('calypso')].initialOwner = 'SuperEarth';
+                initPlanet('calypso', 'CALYPSO', -21.110376, -42.437923, 'blue');
+            planetData[slug('elysian-meadows')] = {};
+            planetData[slug('elysian-meadows')].initialOwner = 'SuperEarth';
+                initPlanet('elysian-meadows', 'ELYSIAN MEADOWS', -25.539272, -34.392582, 'blue');
+                addArrow([-34.392582, -25.539272], [-39.10108, -31.297134], `ELYSIAN MEADOWS -> ALDERIDGE COVE`);
+            planetData[slug('alderidge-cove')] = {};
+            planetData[slug('alderidge-cove')].initialOwner = 'SuperEarth';
+                initPlanet('alderidge-cove', 'ALDERIDGE COVE', -31.297134, -39.10108, 'blue');
+            planetData[slug('trandor')] = {};
+            planetData[slug('trandor')].initialOwner = 'Terminids';
+                initPlanet('trandor', 'TRANDOR', 91.89892, -12.49713, 'orange');
+                addArrow([-12.49713, 91.89892], [0.45250002, 93.316216], `TRANDOR -> PEACOCK`);
+            planetData[slug('east-iridium-trading-bay')] = {};
+            planetData[slug('east-iridium-trading-bay')].initialOwner = 'SuperEarth';
+                initPlanet('east-iridium-trading-bay', 'EAST IRIDIUM TRADING BAY', -34.22812, -30.2748, 'blue');
+                addArrow([-30.2748, -34.22812], [-34.74094, -41.16785], `EAST IRIDIUM TRADING BAY -> BRINK-2`);
+            planetData[slug('liberty-ridge')] = {};
+            planetData[slug('liberty-ridge')].initialOwner = 'SuperEarth';
+                initPlanet('liberty-ridge', 'LIBERTY RIDGE', -41.23793, -17.510368, 'blue');
+                addArrow([-17.510368, -41.23793], [-13.310369, -35.3078], `LIBERTY RIDGE -> BALDRICK PRIME`);
+            planetData[slug('baldrick-prime')] = {};
+            planetData[slug('baldrick-prime')].initialOwner = 'SuperEarth';
+                initPlanet('baldrick-prime', 'BALDRICK PRIME', -35.3078, -13.310369, 'blue');
+                addArrow([-13.310369, -35.3078], [-16.096954, -28.988405], `BALDRICK PRIME -> ILDUNA PRIME`);
+            planetData[slug('the-weir')] = {};
+            planetData[slug('the-weir')].initialOwner = 'SuperEarth';
+                initPlanet('the-weir', 'THE WEIR', -42.307507, -2.936833, 'blue');
+                addArrow([-2.936833, -42.307507], [-9.407308, -46.455658], `THE WEIR -> KUPER`);
+            planetData[slug('kuper')] = {};
+            planetData[slug('kuper')].initialOwner = 'SuperEarth';
+                initPlanet('kuper', 'KUPER', -46.455658, -9.407308, 'blue');
+                addArrow([-9.407308, -46.455658], [-3.5894625, -52.26474], `KUPER -> CAPH`);
+            planetData[slug('oslo-station')] = {};
+            planetData[slug('oslo-station')].initialOwner = 'SuperEarth';
+                initPlanet('oslo-station', 'OSLO STATION', -42.32602, 5.013234, 'blue');
+                addArrow([5.013234, -42.32602], [5.68677, -34.9058], `OSLO STATION -> GUNVALD`);
+            planetData[slug('popli-ix')] = {};
+            planetData[slug('popli-ix')].initialOwner = 'SuperEarth';
+                initPlanet('popli-ix', 'P&#xD6;PLI IX', -63.555653, 4.90733, 'blue');
+                addArrow([4.90733, -63.555653], [5.2942863, -73.15482], `P&#xD6;PLI IX -> INGMAR`);
+            planetData[slug('gunvald')] = {};
+            planetData[slug('gunvald')].initialOwner = 'SuperEarth';
+                initPlanet('gunvald', 'GUNVALD', -34.9058, 5.68677, 'blue');
+            planetData[slug('dolph')] = {};
+            planetData[slug('dolph')].initialOwner = 'SuperEarth';
+                initPlanet('dolph', 'DOLPH', -53.1078, 5.410378, 'blue');
+            planetData[slug('bekvam-iii')] = {};
+            planetData[slug('bekvam-iii')].initialOwner = 'SuperEarth';
+                initPlanet('bekvam-iii', 'BEKVAM III', -48.401085, 21.397131, 'blue');
+                addArrow([21.397131, -48.401085], [15.897133, -40.97096], `BEKVAM III -> DUMA TYR`);
+            planetData[slug('duma-tyr')] = {};
+            planetData[slug('duma-tyr')].initialOwner = 'SuperEarth';
+                initPlanet('duma-tyr', 'DUMA TYR', -40.97096, 15.897133, 'blue');
+            planetData[slug('vernen-wells')] = {};
+            planetData[slug('vernen-wells')].initialOwner = 'SuperEarth';
+                initPlanet('vernen-wells', 'VERNEN WELLS', -26.997122, 37.60109, 'blue');
+                addArrow([37.60109, -26.997122], [28.628126, -34.874794], `VERNEN WELLS -> AESIR PASS`);
+                addArrow([37.60109, -26.997122], [49.906696, -22.899727], `VERNEN WELLS -> LESATH`);
+            planetData[slug('aesir-pass')] = {};
+            planetData[slug('aesir-pass')].initialOwner = 'SuperEarth';
+                initPlanet('aesir-pass', 'AESIR PASS', -34.874794, 28.628126, 'blue');
+            planetData[slug('aurora-bay')] = {};
+            planetData[slug('aurora-bay')].initialOwner = 'SuperEarth';
+                initPlanet('aurora-bay', 'AURORA BAY', -44.31037, 59.9078, 'blue');
+                addArrow([59.9078, -44.31037], [51.28745, -39.92379], `AURORA BAY -> CHOOHE`);
+            planetData[slug('penta')] = {};
+            planetData[slug('penta')].initialOwner = 'SuperEarth';
+                initPlanet('penta', 'PENTA', -27.880848, 58.735435, 'blue');
+                addArrow([58.735435, -27.880848], [55.157326, -34.12379], `PENTA -> CHORT BAY`);
+                addArrow([58.735435, -27.880848], [49.906696, -22.899727], `PENTA -> LESATH`);
+                addArrow([58.735435, -27.880848], [64.49973, -35.20665], `PENTA -> MERAK`);
+            planetData[slug('gaellivare')] = {};
+            planetData[slug('gaellivare')].initialOwner = 'SuperEarth';
+                initPlanet('gaellivare', 'GAELLIVARE', -16.213205, 41.42603, 'blue');
+            planetData[slug('vog-sojoth')] = {};
+            planetData[slug('vog-sojoth')].initialOwner = 'SuperEarth';
+                initPlanet('vog-sojoth', 'VOG-SOJOTH', -12.2073, 54.355656, 'blue');
+                addArrow([54.355656, -12.2073], [63.74251, -7.3540235], `VOG-SOJOTH -> CLASA`);
+            planetData[slug('kirrik')] = {};
+            planetData[slug('kirrik')].initialOwner = 'SuperEarth';
+                initPlanet('kirrik', 'KIRRIK', 12.954042, 52.342518, 'blue');
+                addArrow([52.342518, 12.954042], [54.56473, 3.3894706], `KIRRIK -> MORTAX PRIME`);
+                addArrow([52.342518, 12.954042], [58.65483, 19.694271], `KIRRIK -> WILFORD STATION`);
+            planetData[slug('mortax-prime')] = {};
+            planetData[slug('mortax-prime')].initialOwner = 'SuperEarth';
+                initPlanet('mortax-prime', 'MORTAX PRIME', 3.3894706, 54.56473, 'blue');
+            planetData[slug('wilford-station')] = {};
+            planetData[slug('wilford-station')].initialOwner = 'SuperEarth';
+                initPlanet('wilford-station', 'WILFORD STATION', 19.694271, 58.65483, 'blue');
+                addArrow([58.65483, 19.694271], [64.15732, 28.023794], `WILFORD STATION -> PIONEER II`);
+            planetData[slug('pioneer-ii')] = {};
+            planetData[slug('pioneer-ii')].initialOwner = 'SuperEarth';
+                initPlanet('pioneer-ii', 'PIONEER II', 28.023794, 64.15732, 'blue');
+                addArrow([64.15732, 28.023794], [70.93697, 21.63721], `PIONEER II -> ELECTRA BAY`);
+            planetData[slug('erson-sands')] = {};
+            planetData[slug('erson-sands')].initialOwner = 'SuperEarth';
+                initPlanet('erson-sands', 'ERSON SANDS', 46.854145, 55.13042, 'blue');
+                addArrow([55.13042, 46.854145], [60.09798, 39.94094], `ERSON SANDS -> SOCORRO III`);
+            planetData[slug('socorro-iii')] = {};
+            planetData[slug('socorro-iii')].initialOwner = 'SuperEarth';
+                initPlanet('socorro-iii', 'SOCORRO III', 39.94094, 60.09798, 'blue');
+            planetData[slug('bore-rock')] = {};
+            planetData[slug('bore-rock')].initialOwner = 'SuperEarth';
+                initPlanet('bore-rock', 'BORE ROCK', 32.59798, 41.74094, 'blue');
+                addArrow([41.74094, 32.59798], [50.828117, 37.2748], `BORE ROCK -> ESKER`);
+            planetData[slug('fenrir-iii')] = {};
+            planetData[slug('fenrir-iii')].initialOwner = 'Terminids';
+                initPlanet('fenrir-iii', 'FENRIR III', 46.994884, 27.418608, 'blue');
+                addArrow([27.418608, 46.994884], [20.684212, 51.349716], `FENRIR III -> MERIDIA`);
+                addArrow([27.418608, 46.994884], [34.833485, 42.43272], `FENRIR III -> ERATA PRIME`);
+            planetData[slug('turing')] = {};
+            planetData[slug('turing')].initialOwner = 'Terminids';
+                initPlanet('turing', 'TURING', 53.48745, 11.823792, 'blue');
+                addArrow([11.823792, 53.48745], [16.18837, 44.48446], `TURING -> ANGEL&#x27;S VENTURE`);
+            planetData[slug('angels-venture')] = {};
+            planetData[slug('angels-venture')].initialOwner = 'Terminids';
+                initPlanet('angels-venture', 'ANGEL&#x27;S VENTURE', 44.48446, 16.18837, 'blue');
+                addArrow([16.18837, 44.48446], [15.48962, 33.707794], `ANGEL&#x27;S VENTURE -> MORADESH`);
+            planetData[slug('darius-ii')] = {};
+            planetData[slug('darius-ii')].initialOwner = 'SuperEarth';
+                initPlanet('darius-ii', 'DARIUS II', 64.16474, -3.4105327, 'blue');
+            planetData[slug('acamar-iv')] = {};
+            planetData[slug('acamar-iv')].initialOwner = 'SuperEarth';
+                initPlanet('acamar-iv', 'ACAMAR IV', 62.442516, 10.9540415, 'blue');
+                addArrow([10.9540415, 62.442516], [14.800768, 73.02936], `ACAMAR IV -> GACRUX`);
+            planetData[slug('achernar-secundus')] = {};
+            planetData[slug('achernar-secundus')].initialOwner = 'SuperEarth';
+                initPlanet('achernar-secundus', 'ACHERNAR SECUNDUS', 63.94251, -11.354046, 'blue');
+                addArrow([-11.354046, 63.94251], [-3.5894756, 57.06473], `ACHERNAR SECUNDUS -> ACHIRD III`);
+            planetData[slug('achird-iii')] = {};
+            planetData[slug('achird-iii')].initialOwner = 'SuperEarth';
+                initPlanet('achird-iii', 'ACHIRD III', 57.06473, -3.5894756, 'blue');
+                addArrow([-3.5894756, 57.06473], [-3.4105327, 64.16474], `ACHIRD III -> DARIUS II`);
+            planetData[slug('acrab-xi')] = {};
+            planetData[slug('acrab-xi')].initialOwner = 'SuperEarth';
+                initPlanet('acrab-xi', 'ACRAB XI', 49.857323, -21.4238, 'blue');
+                addArrow([-21.4238, 49.857323], [-19.894274, 57.154827], `ACRAB XI -> ACRUX IX`);
+                addArrow([-21.4238, 49.857323], [-27.437216, 56.006847], `ACRAB XI -> GEMMA`);
+            planetData[slug('acrux-ix')] = {};
+            planetData[slug('acrux-ix')].initialOwner = 'SuperEarth';
+                initPlanet('acrux-ix', 'ACRUX IX', 57.154827, -19.894274, 'blue');
+            planetData[slug('acubens-prime')] = {};
+            planetData[slug('acubens-prime')].initialOwner = 'SuperEarth';
+                initPlanet('acubens-prime', 'ACUBENS PRIME', 39.494884, -34.418606, 'blue');
+                addArrow([-34.418606, 39.494884], [-26.197136, 39.501083], `ACUBENS PRIME -> RASP`);
+                addArrow([-34.418606, 39.494884], [-26.339266, 32.492584], `ACUBENS PRIME -> BASHYR`);
+            planetData[slug('adhara')] = {};
+            planetData[slug('adhara')].initialOwner = 'SuperEarth';
+                initPlanet('adhara', 'ADHARA', 36.55414, -40.63043, 'blue');
+                addArrow([-40.63043, 36.55414], [-34.418606, 39.494884], `ADHARA -> ACUBENS PRIME`);
+                addArrow([-40.63043, 36.55414], [-43.49489, 30.818605], `ADHARA -> AFOYAY BAY`);
+            planetData[slug('afoyay-bay')] = {};
+            planetData[slug('afoyay-bay')].initialOwner = 'SuperEarth';
+                initPlanet('afoyay-bay', 'AFOYAY BAY', 30.818605, -43.49489, 'blue');
+            planetData[slug('ain-5')] = {};
+            planetData[slug('ain-5')].initialOwner = 'SuperEarth';
+                initPlanet('ain-5', 'AIN-5', 21.723791, -49.157326, 'blue');
+            planetData[slug('alairt-iii')] = {};
+            planetData[slug('alairt-iii')].initialOwner = 'SuperEarth';
+                initPlanet('alairt-iii', 'ALAIRT III', 11.354035, -59.142513, 'blue');
+                addArrow([-59.142513, 11.354035], [-52.712883, 6.3599405], `ALAIRT III -> ALAMAK VII`);
+            planetData[slug('alamak-vii')] = {};
+            planetData[slug('alamak-vii')].initialOwner = 'SuperEarth';
+                initPlanet('alamak-vii', 'ALAMAK VII', 6.3599405, -52.712883, 'blue');
+                addArrow([-52.712883, 6.3599405], [-50.955658, 14.707311], `ALAMAK VII -> NEW STOCKHOLM`);
+            planetData[slug('alaraph')] = {};
+            planetData[slug('alaraph')].initialOwner = 'SuperEarth';
+                initPlanet('alaraph', 'ALARAPH', -3.489475, -54.864735, 'blue');
+                addArrow([-54.864735, -3.489475], [-51.612873, -12.159955], `ALARAPH -> ALATHFAR XI`);
+            planetData[slug('alathfar-xi')] = {};
+            planetData[slug('alathfar-xi')].initialOwner = 'SuperEarth';
+                initPlanet('alathfar-xi', 'ALATHFAR XI', -12.159955, -51.612873, 'blue');
+                addArrow([-51.612873, -12.159955], [-49.554832, -20.094276], `ALATHFAR XI -> ANDAR`);
+            planetData[slug('andar')] = {};
+            planetData[slug('andar')].initialOwner = 'SuperEarth';
+                initPlanet('andar', 'ANDAR', -20.094276, -49.554832, 'blue');
+                addArrow([-49.554832, -20.094276], [-57.684456, -23.688374], `ANDAR -> ASPEROTH PRIME`);
+            planetData[slug('asperoth-prime')] = {};
+            planetData[slug('asperoth-prime')].initialOwner = 'SuperEarth';
+                initPlanet('asperoth-prime', 'ASPEROTH PRIME', -23.688374, -57.684456, 'blue');
+            planetData[slug('bellatrix')] = {};
+            planetData[slug('bellatrix')].initialOwner = 'SuperEarth';
+                initPlanet('bellatrix', 'BELLATRIX', -30.640945, -46.26785, 'blue');
+                addArrow([-46.26785, -30.640945], [-39.10108, -31.297134], `BELLATRIX -> ALDERIDGE COVE`);
+                addArrow([-46.26785, -30.640945], [-43.39488, -38.71862], `BELLATRIX -> BOTEIN`);
+            planetData[slug('botein')] = {};
+            planetData[slug('botein')].initialOwner = 'SuperEarth';
+                initPlanet('botein', 'BOTEIN', -38.71862, -43.39488, 'blue');
+            planetData[slug('osupsam')] = {};
+            planetData[slug('osupsam')].initialOwner = 'SuperEarth';
+                initPlanet('osupsam', 'OSUPSAM', -47.797977, -31.74094, 'blue');
+                addArrow([-31.74094, -47.797977], [-34.74094, -41.16785], `OSUPSAM -> BRINK-2`);
+            planetData[slug('brink-2')] = {};
+            planetData[slug('brink-2')].initialOwner = 'SuperEarth';
+                initPlanet('brink-2', 'BRINK-2', -41.16785, -34.74094, 'blue');
+                addArrow([-34.74094, -41.16785], [-23.023785, -47.057327], `BRINK-2 -> CANOPUS`);
+            planetData[slug('bunda-secundus')] = {};
+            planetData[slug('bunda-secundus')].initialOwner = 'SuperEarth';
+                initPlanet('bunda-secundus', 'BUNDA SECUNDUS', -52.684467, -18.688354, 'blue');
+                addArrow([-18.688354, -52.684467], [-23.023785, -47.057327], `BUNDA SECUNDUS -> CANOPUS`);
+            planetData[slug('canopus')] = {};
+            planetData[slug('canopus')].initialOwner = 'SuperEarth';
+                initPlanet('canopus', 'CANOPUS', -47.057327, -23.023785, 'blue');
+            planetData[slug('caph')] = {};
+            planetData[slug('caph')].initialOwner = 'SuperEarth';
+                initPlanet('caph', 'CAPH', -52.26474, -3.5894625, 'blue');
+                addArrow([-3.5894625, -52.26474], [-11.3540325, -56.242516], `CAPH -> CASTOR`);
+                addArrow([-3.5894625, -52.26474], [-4.2420917, -62.221954], `CAPH -> LASTOFE`);
+            planetData[slug('castor')] = {};
+            planetData[slug('castor')].initialOwner = 'SuperEarth';
+                initPlanet('castor', 'CASTOR', -56.242516, -11.3540325, 'blue');
+            planetData[slug('durgen')] = {};
+            planetData[slug('durgen')].initialOwner = 'Automatons';
+                initPlanet('durgen', 'DURGEN', -91.46473, -17.310524, 'blue');
+            planetData[slug('draupnir')] = {};
+            planetData[slug('draupnir')].initialOwner = 'SuperEarth';
+                initPlanet('draupnir', 'DRAUPNIR', -74.542496, -13.14594, 'blue');
+                addArrow([-13.14594, -74.542496], [-12.653387, -62.686592], `DRAUPNIR -> TIEN KWAN`);
+            planetData[slug('mort')] = {};
+            planetData[slug('mort')].initialOwner = 'SuperEarth';
+                initPlanet('mort', 'MORT', -67.88745, 11.7238, 'blue');
+                addArrow([11.7238, -67.88745], [4.90733, -63.555653], `MORT -> P&#xD6;PLI IX`);
+                addArrow([11.7238, -67.88745], [5.2942863, -73.15482], `MORT -> INGMAR`);
+            planetData[slug('ingmar')] = {};
+            planetData[slug('ingmar')].initialOwner = 'SuperEarth';
+                initPlanet('ingmar', 'INGMAR', -73.15482, 5.2942863, 'blue');
+                addArrow([5.2942863, -73.15482], [-3.1981971, -74.60386], `INGMAR -> MANTES`);
+            planetData[slug('charbal-vii')] = {};
+            planetData[slug('charbal-vii')].initialOwner = 'SuperEarth';
+                initPlanet('charbal-vii', 'CHARBAL-VII', -60.09798, 20.24094, 'blue');
+            planetData[slug('charon-prime')] = {};
+            planetData[slug('charon-prime')].initialOwner = 'SuperEarth';
+                initPlanet('charon-prime', 'CHARON PRIME', -57.5186, 26.594893, 'blue');
+                addArrow([26.594893, -57.5186], [20.24094, -60.09798], `CHARON PRIME -> CHARBAL-VII`);
+                addArrow([26.594893, -57.5186], [33.38475, -53.794872], `CHARON PRIME -> MARTALE`);
+            planetData[slug('choepessa-iv')] = {};
+            planetData[slug('choepessa-iv')].initialOwner = 'SuperEarth';
+                initPlanet('choepessa-iv', 'CHOEPESSA IV', -70.44093, 25.667854, 'blue');
+                addArrow([25.667854, -70.44093], [20.750635, -80.6865], `CHOEPESSA IV -> USTOTU`);
+                addArrow([25.667854, -70.44093], [34.41284, -74.635], `CHOEPESSA IV -> VARYLIA 5`);
+            planetData[slug('choohe')] = {};
+            planetData[slug('choohe')].initialOwner = 'SuperEarth';
+                initPlanet('choohe', 'CHOOHE', -39.92379, 51.28745, 'blue');
+                addArrow([51.28745, -39.92379], [55.157326, -34.12379], `CHOOHE -> CHORT BAY`);
+                addArrow([51.28745, -39.92379], [45.60387, -31.501774], `CHOOHE -> MENKENT`);
+            planetData[slug('chort-bay')] = {};
+            planetData[slug('chort-bay')].initialOwner = 'SuperEarth';
+                initPlanet('chort-bay', 'CHORT BAY', -34.12379, 55.157326, 'blue');
+                addArrow([55.157326, -34.12379], [64.49973, -35.20665], `CHORT BAY -> MERAK`);
+            planetData[slug('claorell')] = {};
+            planetData[slug('claorell')].initialOwner = 'SuperEarth';
+                initPlanet('claorell', 'CLAORELL', -4.959929, 52.91288, 'blue');
+                addArrow([52.91288, -4.959929], [63.74251, -7.3540235], `CLAORELL -> CLASA`);
+            planetData[slug('clasa')] = {};
+            planetData[slug('clasa')].initialOwner = 'SuperEarth';
+                initPlanet('clasa', 'CLASA', -7.3540235, 63.74251, 'blue');
+                addArrow([63.74251, -7.3540235], [65.12196, 6.1421013], `CLASA -> DEMIURG`);
+                addArrow([63.74251, -7.3540235], [70.986595, -13.953374], `CLASA -> YED PRIOR`);
+            planetData[slug('demiurg')] = {};
+            planetData[slug('demiurg')].initialOwner = 'SuperEarth';
+                initPlanet('demiurg', 'DEMIURG', 6.1421013, 65.12196, 'blue');
+                addArrow([65.12196, 6.1421013], [72.179184, -4.8947096], `DEMIURG -> ZEFIA`);
+            planetData[slug('deneb-secundus')] = {};
+            planetData[slug('deneb-secundus')].initialOwner = 'SuperEarth';
+                initPlanet('deneb-secundus', 'DENEB SECUNDUS', 9.195879, 73.73349, 'blue');
+                addArrow([73.73349, 9.195879], [70.93697, 21.63721], `DENEB SECUNDUS -> ELECTRA BAY`);
+            planetData[slug('electra-bay')] = {};
+            planetData[slug('electra-bay')].initialOwner = 'SuperEarth';
+                initPlanet('electra-bay', 'ELECTRA BAY', 21.63721, 70.93697, 'blue');
+            planetData[slug('enuliale')] = {};
+            planetData[slug('enuliale')].initialOwner = 'Terminids';
+                initPlanet('enuliale', 'ENULIALE', 47.584743, 67.89487, 'orange');
+                addArrow([67.89487, 47.584743], [60.43272, 56.93348], `ENULIALE -> EPSILON PHOENCIS VI`);
+                addArrow([67.89487, 47.584743], [74.75853, 52.672363], `ENULIALE -> DIASPORA X`);
+            planetData[slug('epsilon-phoencis-vi')] = {};
+            planetData[slug('epsilon-phoencis-vi')].initialOwner = 'Terminids';
+                initPlanet('epsilon-phoencis-vi', 'EPSILON PHOENCIS VI', 56.93348, 60.43272, 'orange');
+                addArrow([60.43272, 56.93348], [60.701786, 66.65664], `EPSILON PHOENCIS VI -> GEMSTONE BLUFFS`);
+            planetData[slug('erata-prime')] = {};
+            planetData[slug('erata-prime')].initialOwner = 'Terminids';
+                initPlanet('erata-prime', 'ERATA PRIME', 42.43272, 34.833485, 'blue');
+            planetData[slug('estanu')] = {};
+            planetData[slug('estanu')].initialOwner = 'Terminids';
+                initPlanet('estanu', 'ESTANU', 58.036972, 29.137207, 'blue');
+                addArrow([29.137207, 58.036972], [30.101782, 68.803856], `ESTANU -> FORI PRIME`);
+            planetData[slug('fori-prime')] = {};
+            planetData[slug('fori-prime')].initialOwner = 'Terminids';
+                initPlanet('fori-prime', 'FORI PRIME', 68.803856, 30.101782, 'orange');
+                addArrow([30.101782, 68.803856], [39.55063, 63.3865], `FORI PRIME -> OSHAUNE`);
+            planetData[slug('gacrux')] = {};
+            planetData[slug('gacrux')].initialOwner = 'SuperEarth';
+                initPlanet('gacrux', 'GACRUX', 73.02936, 14.800768, 'blue');
+                addArrow([14.800768, 73.02936], [6.394728, 71.47919], `GACRUX -> PANDION-XXIV`);
+            planetData[slug('gar-haren')] = {};
+            planetData[slug('gar-haren')].initialOwner = 'SuperEarth';
+                initPlanet('gar-haren', 'GAR HAREN', 73.12195, -12.242107, 'blue');
+                addArrow([-12.242107, 73.12195], [-13.200771, 82.52936], `GAR HAREN -> GATRIA`);
+            planetData[slug('gatria')] = {};
+            planetData[slug('gatria')].initialOwner = 'SuperEarth';
+                initPlanet('gatria', 'GATRIA', 82.52936, -13.200771, 'blue');
+                addArrow([-13.200771, 82.52936], [-1.9947395, 75.87918], `GATRIA -> PHACT BAY`);
+            planetData[slug('gemma')] = {};
+            planetData[slug('gemma')].initialOwner = 'SuperEarth';
+                initPlanet('gemma', 'GEMMA', 56.006847, -27.437216, 'blue');
+            planetData[slug('grand-errant')] = {};
+            planetData[slug('grand-errant')].initialOwner = 'SuperEarth';
+                initPlanet('grand-errant', 'GRAND ERRANT', 68.73349, -24.39588, 'blue');
+                addArrow([-24.39588, 68.73349], [-35.1093, 75.75288], `GRAND ERRANT -> POLARIS PRIME`);
+            planetData[slug('hadar')] = {};
+            planetData[slug('hadar')].initialOwner = 'SuperEarth';
+                initPlanet('hadar', 'HADAR', 51.897186, -38.59795, 'blue');
+            planetData[slug('haka')] = {};
+            planetData[slug('haka')].initialOwner = 'SuperEarth';
+                initPlanet('haka', 'HAKA', 58.13272, -45.833485, 'blue');
+                addArrow([-45.833485, 58.13272], [-58.26475, 48.08474], `HAKA -> HALIES PORT`);
+            planetData[slug('haldus')] = {};
+            planetData[slug('haldus')].initialOwner = 'SuperEarth';
+                initPlanet('haldus', 'HALDUS', 45.89794, -45.89719, 'blue');
+                addArrow([-45.89719, 45.89794], [-38.59795, 51.897186], `HALDUS -> HADAR`);
+            planetData[slug('halies-port')] = {};
+            planetData[slug('halies-port')].initialOwner = 'SuperEarth';
+                initPlanet('halies-port', 'HALIES PORT', 48.08474, -58.26475, 'blue');
+                addArrow([-58.26475, 48.08474], [-67.6995, 58.777283], `HALIES PORT -> PROPUS`);
+                addArrow([-58.26475, 48.08474], [-71.661644, 49.028545], `HALIES PORT -> RAS ALGETHI`);
+            planetData[slug('herthon-secundus')] = {};
+            planetData[slug('herthon-secundus')].initialOwner = 'SuperEarth';
+                initPlanet('herthon-secundus', 'HERTHON SECUNDUS', 27.001774, -58.803867, 'blue');
+            planetData[slug('hesoe-prime')] = {};
+            planetData[slug('hesoe-prime')].initialOwner = 'SuperEarth';
+                initPlanet('hesoe-prime', 'HESOE PRIME', 35.89587, -73.933495, 'blue');
+                addArrow([-73.933495, 35.89587], [-69.129364, 25.10076], `HESOE PRIME -> HORT`);
+                addArrow([-73.933495, 35.89587], [-87.156364, 29.350624], `HESOE PRIME -> RD-4`);
+            planetData[slug('heze-bay')] = {};
+            planetData[slug('heze-bay')].initialOwner = 'SuperEarth';
+                initPlanet('heze-bay', 'HEZE BAY', 4.742095, -64.221954, 'blue');
+                addArrow([-64.221954, 4.742095], [-59.142513, 11.354035], `HEZE BAY -> ALAIRT III`);
+            planetData[slug('hort')] = {};
+            planetData[slug('hort')].initialOwner = 'SuperEarth';
+                initPlanet('hort', 'HORT', 25.10076, -69.129364, 'blue');
+                addArrow([-69.129364, 25.10076], [-72.779175, 9.694725], `HORT -> RIRGA BAY`);
+            planetData[slug('hydrobius')] = {};
+            planetData[slug('hydrobius')].initialOwner = 'SuperEarth';
+                initPlanet('hydrobius', 'HYDROBIUS', -4.842106, -70.721954, 'blue');
+                addArrow([-70.721954, -4.842106], [-66.02936, -13.300779], `HYDROBIUS -> KARLIA`);
+            planetData[slug('karlia')] = {};
+            planetData[slug('karlia')].initialOwner = 'SuperEarth';
+                initPlanet('karlia', 'KARLIA', -13.300779, -66.02936, 'blue');
+                addArrow([-66.02936, -13.300779], [-85.416214, -16.047508], `KARLIA -> SETIA`);
+            planetData[slug('keid')] = {};
+            planetData[slug('keid')].initialOwner = 'SuperEarth';
+                initPlanet('keid', 'KEID', -26.49589, -67.23349, 'blue');
+                addArrow([-67.23349, -26.49589], [-57.684456, -23.688374], `KEID -> ASPEROTH PRIME`);
+            planetData[slug('khandark')] = {};
+            planetData[slug('khandark')].initialOwner = 'SuperEarth';
+                initPlanet('khandark', 'KHANDARK', -37.28475, -53.06474, 'blue');
+                addArrow([-53.06474, -37.28475], [-43.39488, -38.71862], `KHANDARK -> BOTEIN`);
+            planetData[slug('klaka-5')] = {};
+            planetData[slug('klaka-5')].initialOwner = 'SuperEarth';
+                initPlanet('klaka-5', 'KLAKA 5', -55.594868, -31.584743, 'blue');
+                addArrow([-31.584743, -55.594868], [-42.13348, -49.53272], `KLAKA 5 -> KNETH PORT`);
+                addArrow([-31.584743, -55.594868], [-20.337196, -61.406853], `KLAKA 5 -> KRAZ`);
+            planetData[slug('kneth-port')] = {};
+            planetData[slug('kneth-port')].initialOwner = 'SuperEarth';
+                initPlanet('kneth-port', 'KNETH PORT', -49.53272, -42.13348, 'blue');
+            planetData[slug('kraz')] = {};
+            planetData[slug('kraz')].initialOwner = 'SuperEarth';
+                initPlanet('kraz', 'KRAZ', -61.406853, -20.337196, 'blue');
+            planetData[slug('kuma')] = {};
+            planetData[slug('kuma')].initialOwner = 'SuperEarth';
+                initPlanet('kuma', 'KUMA', 3.3961341, 92.59823, 'blue');
+                addArrow([92.59823, 3.3961341], [92.33154, 14.810904], `KUMA -> SKITTER`);
+            planetData[slug('lastofe')] = {};
+            planetData[slug('lastofe')].initialOwner = 'SuperEarth';
+                initPlanet('lastofe', 'LASTOFE', -62.221954, -4.2420917, 'blue');
+            planetData[slug('leng-secundus')] = {};
+            planetData[slug('leng-secundus')].initialOwner = 'SuperEarth';
+                initPlanet('leng-secundus', 'LENG SECUNDUS', -68.629364, -25.600756, 'blue');
+                addArrow([-25.600756, -68.629364], [-40.203377, -62.582527], `LENG SECUNDUS -> STOUT`);
+            planetData[slug('lesath')] = {};
+            planetData[slug('lesath')].initialOwner = 'SuperEarth';
+                initPlanet('lesath', 'LESATH', -22.899727, 49.906696, 'blue');
+                addArrow([49.906696, -22.899727], [55.157326, -34.12379], `LESATH -> CHORT BAY`);
+            planetData[slug('maia')] = {};
+            planetData[slug('maia')].initialOwner = 'Automatons';
+                initPlanet('maia', 'MAIA', -92.72936, -4.299212, 'blue');
+                addArrow([-4.299212, -92.72936], [-9.6041, -84.73348], `MAIA -> MALEVELON CREEK`);
+                addArrow([-4.299212, -92.72936], [6.103413, -84.082504], `MAIA -> VANDALON IV`);
+            planetData[slug('malevelon-creek')] = {};
+            planetData[slug('malevelon-creek')].initialOwner = 'Automatons';
+                initPlanet('malevelon-creek', 'MALEVELON CREEK', -84.73348, -9.6041, 'blue');
+                addArrow([-9.6041, -84.73348], [-17.310524, -91.46473], `MALEVELON CREEK -> DURGEN`);
+                addArrow([-9.6041, -84.73348], [-13.14594, -74.542496], `MALEVELON CREEK -> DRAUPNIR`);
+            planetData[slug('mantes')] = {};
+            planetData[slug('mantes')].initialOwner = 'SuperEarth';
+                initPlanet('mantes', 'MANTES', -74.60386, -3.1981971, 'blue');
+                addArrow([-3.1981971, -74.60386], [4.90733, -63.555653], `MANTES -> P&#xD6;PLI IX`);
+                addArrow([-3.1981971, -74.60386], [-13.14594, -74.542496], `MANTES -> DRAUPNIR`);
+                addArrow([-3.1981971, -74.60386], [-9.6041, -84.73348], `MANTES -> MALEVELON CREEK`);
+            planetData[slug('marfark')] = {};
+            planetData[slug('marfark')].initialOwner = 'SuperEarth';
+                initPlanet('marfark', 'MARFARK', -43.697178, 32.597958, 'blue');
+                addArrow([32.597958, -43.697178], [33.38475, -53.794872], `MARFARK -> MARTALE`);
+                addArrow([32.597958, -43.697178], [41.39719, -49.09794], `MARFARK -> MATAR BAY`);
+            planetData[slug('martale')] = {};
+            planetData[slug('martale')].initialOwner = 'SuperEarth';
+                initPlanet('martale', 'MARTALE', -53.794872, 33.38475, 'blue');
+            planetData[slug('matar-bay')] = {};
+            planetData[slug('matar-bay')].initialOwner = 'SuperEarth';
+                initPlanet('matar-bay', 'MATAR BAY', -49.09794, 41.39719, 'blue');
+            planetData[slug('meissa')] = {};
+            planetData[slug('meissa')].initialOwner = 'SuperEarth';
+                initPlanet('meissa', 'MEISSA', -56.83347, 49.03273, 'blue');
+                addArrow([49.03273, -56.83347], [45.428555, -65.19177], `MEISSA -> WASAT`);
+            planetData[slug('mekbuda')] = {};
+            planetData[slug('mekbuda')].initialOwner = 'SuperEarth';
+                initPlanet('mekbuda', 'MEKBUDA', -53.437202, 65.10685, 'blue');
+                addArrow([65.10685, -53.437202], [77.08251, -56.103386], `MEKBUDA -> VINDEMITARIX PRIME`);
+            planetData[slug('menkent')] = {};
+            planetData[slug('menkent')].initialOwner = 'SuperEarth';
+                initPlanet('menkent', 'MENKENT', -31.501774, 45.60387, 'blue');
+                addArrow([45.60387, -31.501774], [37.60109, -26.997122], `MENKENT -> VERNEN WELLS`);
+                addArrow([45.60387, -31.501774], [49.906696, -22.899727], `MENKENT -> LESATH`);
+            planetData[slug('merak')] = {};
+            planetData[slug('merak')].initialOwner = 'SuperEarth';
+                initPlanet('merak', 'MERAK', -35.20665, 64.49973, 'blue');
+            planetData[slug('merga-iv')] = {};
+            planetData[slug('merga-iv')].initialOwner = 'SuperEarth';
+                initPlanet('merga-iv', 'MERGA IV', -32.600746, 74.72937, 'blue');
+                addArrow([74.72937, -32.600746], [77.08251, -56.103386], `MERGA IV -> VINDEMITARIX PRIME`);
+            planetData[slug('minchir')] = {};
+            planetData[slug('minchir')].initialOwner = 'SuperEarth';
+                initPlanet('minchir', 'MINCHIR', 8.494733, 83.37918, 'blue');
+                addArrow([83.37918, 8.494733], [84.179184, -6.005267], `MINCHIR -> MINTORIA`);
+            planetData[slug('mintoria')] = {};
+            planetData[slug('mintoria')].initialOwner = 'SuperEarth';
+                initPlanet('mintoria', 'MINTORIA', -6.005267, 84.179184, 'blue');
+                addArrow([84.179184, -6.005267], [80.50751, -17.16316], `MINTORIA -> BLISTICA`);
+            planetData[slug('mordia-9')] = {};
+            planetData[slug('mordia-9')].initialOwner = 'SuperEarth';
+                initPlanet('mordia-9', 'MORDIA 9', 31.05063, 77.156364, 'blue');
+                addArrow([77.156364, 31.05063], [87.30191, 31.91681], `MORDIA 9 -> EUPHORIA III`);
+            planetData[slug('nabatea-secundus')] = {};
+            planetData[slug('nabatea-secundus')].initialOwner = 'Terminids';
+                initPlanet('nabatea-secundus', 'NABATEA SECUNDUS', 76.577286, 53.699482, 'orange');
+                addArrow([53.699482, 76.577286], [34.43502, 77.81283], `NABATEA SECUNDUS -> NAVI VII`);
+            planetData[slug('navi-vii')] = {};
+            planetData[slug('navi-vii')].initialOwner = 'Terminids';
+                initPlanet('navi-vii', 'NAVI VII', 77.81283, 34.43502, 'orange');
+            planetData[slug('nivel-43')] = {};
+            planetData[slug('nivel-43')].initialOwner = 'Terminids';
+                initPlanet('nivel-43', 'NIVEL 43', 48.89177, 43.328552, 'orange');
+            planetData[slug('oshaune')] = {};
+            planetData[slug('oshaune')].initialOwner = 'Terminids';
+                initPlanet('oshaune', 'OSHAUNE', 63.3865, 39.55063, 'orange');
+            planetData[slug('overgoe-prime')] = {};
+            planetData[slug('overgoe-prime')].initialOwner = 'Terminids';
+                initPlanet('overgoe-prime', 'OVERGOE PRIME', 91.152885, 18.509296, 'orange');
+            planetData[slug('pandion-xxiv')] = {};
+            planetData[slug('pandion-xxiv')].initialOwner = 'SuperEarth';
+                initPlanet('pandion-xxiv', 'PANDION-XXIV', 71.47919, 6.394728, 'blue');
+                addArrow([6.394728, 71.47919], [-1.9947395, 75.87918], `PANDION-XXIV -> PHACT BAY`);
+            planetData[slug('partion')] = {};
+            planetData[slug('partion')].initialOwner = 'Terminids';
+                initPlanet('partion', 'PARTION', 84.179184, 10.094728, 'orange');
+                addArrow([10.094728, 84.179184], [18.509296, 91.152885], `PARTION -> OVERGOE PRIME`);
+            planetData[slug('peacock')] = {};
+            planetData[slug('peacock')].initialOwner = 'Terminids';
+                initPlanet('peacock', 'PEACOCK', 93.316216, 0.45250002, 'orange');
+                addArrow([0.45250002, 93.316216], [10.094728, 84.179184], `PEACOCK -> PARTION`);
+            planetData[slug('phact-bay')] = {};
+            planetData[slug('phact-bay')].initialOwner = 'SuperEarth';
+                initPlanet('phact-bay', 'PHACT BAY', 75.87918, -1.9947395, 'blue');
+            planetData[slug('pherkad-secundus')] = {};
+            planetData[slug('pherkad-secundus')].initialOwner = 'SuperEarth';
+                initPlanet('pherkad-secundus', 'PHERKAD SECUNDUS', 86.58252, -30.003393, 'blue');
+                addArrow([-30.003393, 86.58252], [-35.1093, 75.75288], `PHERKAD SECUNDUS -> POLARIS PRIME`);
+            planetData[slug('polaris-prime')] = {};
+            planetData[slug('polaris-prime')].initialOwner = 'SuperEarth';
+                initPlanet('polaris-prime', 'POLARIS PRIME', 75.75288, -35.1093, 'blue');
+                addArrow([-35.1093, 75.75288], [-48.228558, 76.591774], `POLARIS PRIME -> POLLUX 31`);
+            planetData[slug('pollux-31')] = {};
+            planetData[slug('pollux-31')].initialOwner = 'SuperEarth';
+                initPlanet('pollux-31', 'POLLUX 31', 76.591774, -48.228558, 'blue');
+                addArrow([-48.228558, 76.591774], [-57.27729, 66.39948], `POLLUX 31 -> PRASA`);
+            planetData[slug('prasa')] = {};
+            planetData[slug('prasa')].initialOwner = 'SuperEarth';
+                initPlanet('prasa', 'PRASA', 66.39948, -57.27729, 'blue');
+            planetData[slug('propus')] = {};
+            planetData[slug('propus')].initialOwner = 'SuperEarth';
+                initPlanet('propus', 'PROPUS', 58.777283, -67.6995, 'blue');
+                addArrow([-67.6995, 58.777283], [-71.661644, 49.028545], `PROPUS -> RAS ALGETHI`);
+            planetData[slug('ras-algethi')] = {};
+            planetData[slug('ras-algethi')].initialOwner = 'SuperEarth';
+                initPlanet('ras-algethi', 'RAS ALGETHI', 49.028545, -71.661644, 'blue');
+            planetData[slug('rd-4')] = {};
+            planetData[slug('rd-4')].initialOwner = 'SuperEarth';
+                initPlanet('rd-4', 'RD-4', 29.350624, -87.156364, 'blue');
+                addArrow([-87.156364, 29.350624], [-91.15289, 14.809286], `RD-4 -> ROGUE 5`);
+            planetData[slug('rogue-5')] = {};
+            planetData[slug('rogue-5')].initialOwner = 'SuperEarth';
+                initPlanet('rogue-5', 'ROGUE 5', 14.809286, -91.15289, 'blue');
+            planetData[slug('rirga-bay')] = {};
+            planetData[slug('rirga-bay')].initialOwner = 'SuperEarth';
+                initPlanet('rirga-bay', 'RIRGA BAY', 9.694725, -72.779175, 'blue');
+            planetData[slug('seasse')] = {};
+            planetData[slug('seasse')].initialOwner = 'SuperEarth';
+                initPlanet('seasse', 'SEASSE', 10.494725, -82.97919, 'blue');
+                addArrow([-82.97919, 10.494725], [-84.37918, -3.7947383], `SEASSE -> SENGE 23`);
+            planetData[slug('senge-23')] = {};
+            planetData[slug('senge-23')].initialOwner = 'SuperEarth';
+                initPlanet('senge-23', 'SENGE 23', -3.7947383, -84.37918, 'blue');
+                addArrow([-84.37918, -3.7947383], [-85.416214, -16.047508], `SENGE 23 -> SETIA`);
+            planetData[slug('setia')] = {};
+            planetData[slug('setia')].initialOwner = 'SuperEarth';
+                initPlanet('setia', 'SETIA', -16.047508, -85.416214, 'blue');
+            planetData[slug('shete')] = {};
+            planetData[slug('shete')].initialOwner = 'SuperEarth';
+                initPlanet('shete', 'SHETE', -31.250626, -83.086494, 'blue');
+                addArrow([-83.086494, -31.250626], [-76.25636, -44.25063], `SHETE -> SIEMNOT`);
+            planetData[slug('siemnot')] = {};
+            planetData[slug('siemnot')].initialOwner = 'SuperEarth';
+                initPlanet('siemnot', 'SIEMNOT', -44.25063, -76.25636, 'blue');
+                addArrow([-76.25636, -44.25063], [-66.89176, -57.32856], `SIEMNOT -> SIRIUS`);
+            planetData[slug('sirius')] = {};
+            planetData[slug('sirius')].initialOwner = 'SuperEarth';
+                initPlanet('sirius', 'SIRIUS', -57.32856, -66.89176, 'blue');
+                addArrow([-66.89176, -57.32856], [-56.399483, -48.7773], `SIRIUS -> SKAT BAY`);
+            planetData[slug('skat-bay')] = {};
+            planetData[slug('skat-bay')].initialOwner = 'SuperEarth';
+                initPlanet('skat-bay', 'SKAT BAY', -48.7773, -56.399483, 'blue');
+            planetData[slug('spherion')] = {};
+            planetData[slug('spherion')].initialOwner = 'SuperEarth';
+                initPlanet('spherion', 'SPHERION', -61.699493, -56.07729, 'blue');
+                addArrow([-56.07729, -61.699493], [-50.628548, -75.56164], `SPHERION -> STOR THA PRIME`);
+            planetData[slug('stor-tha-prime')] = {};
+            planetData[slug('stor-tha-prime')].initialOwner = 'SuperEarth';
+                initPlanet('stor-tha-prime', 'STOR THA PRIME', -75.56164, -50.628548, 'blue');
+                addArrow([-50.628548, -75.56164], [-40.203377, -62.582527], `STOR THA PRIME -> STOUT`);
+            planetData[slug('stout')] = {};
+            planetData[slug('stout')].initialOwner = 'SuperEarth';
+                initPlanet('stout', 'STOUT', -62.582527, -40.203377, 'blue');
+                addArrow([-40.203377, -62.582527], [-56.07729, -61.699493], `STOUT -> SPHERION`);
+            planetData[slug('termadon')] = {};
+            planetData[slug('termadon')].initialOwner = 'SuperEarth';
+                initPlanet('termadon', 'TERMADON', -86.08651, -36.050613, 'blue');
+                addArrow([-36.050613, -86.08651], [-50.628548, -75.56164], `TERMADON -> STOR THA PRIME`);
+            planetData[slug('tibit')] = {};
+            planetData[slug('tibit')].initialOwner = 'Automatons';
+                initPlanet('tibit', 'TIBIT', -78.079185, -32.89472, 'blue');
+                addArrow([-32.89472, -78.079185], [-21.70526, -81.57918], `TIBIT -> UBANEA`);
+            planetData[slug('tien-kwan')] = {};
+            planetData[slug('tien-kwan')].initialOwner = 'SuperEarth';
+                initPlanet('tien-kwan', 'TIEN KWAN', -62.686592, -12.653387, 'blue');
+                addArrow([-12.653387, -62.686592], [-11.3540325, -56.242516], `TIEN KWAN -> CASTOR`);
+            planetData[slug('troost')] = {};
+            planetData[slug('troost')].initialOwner = 'SuperEarth';
+                initPlanet('troost', 'TROOST', -90.21621, 15.547519, 'blue');
+                addArrow([15.547519, -90.21621], [6.103413, -84.082504], `TROOST -> VANDALON IV`);
+            planetData[slug('ubanea')] = {};
+            planetData[slug('ubanea')].initialOwner = 'Automatons';
+                initPlanet('ubanea', 'UBANEA', -81.57918, -21.70526, 'blue');
+                addArrow([-21.70526, -81.57918], [-17.310524, -91.46473], `UBANEA -> DURGEN`);
+                addArrow([-21.70526, -81.57918], [-13.14594, -74.542496], `UBANEA -> DRAUPNIR`);
+            planetData[slug('ustotu')] = {};
+            planetData[slug('ustotu')].initialOwner = 'SuperEarth';
+                initPlanet('ustotu', 'USTOTU', -80.6865, 20.750635, 'blue');
+                addArrow([20.750635, -80.6865], [6.103413, -84.082504], `USTOTU -> VANDALON IV`);
+            planetData[slug('vandalon-iv')] = {};
+            planetData[slug('vandalon-iv')].initialOwner = 'SuperEarth';
+                initPlanet('vandalon-iv', 'VANDALON IV', -84.082504, 6.103413, 'blue');
+                addArrow([6.103413, -84.082504], [5.2942863, -73.15482], `VANDALON IV -> INGMAR`);
+            planetData[slug('varylia-5')] = {};
+            planetData[slug('varylia-5')].initialOwner = 'SuperEarth';
+                initPlanet('varylia-5', 'VARYLIA 5', -74.635, 34.41284, 'blue');
+                addArrow([34.41284, -74.635], [20.750635, -80.6865], `VARYLIA 5 -> USTOTU`);
+            planetData[slug('wasat')] = {};
+            planetData[slug('wasat')].initialOwner = 'SuperEarth';
+                initPlanet('wasat', 'WASAT', -65.19177, 45.428555, 'blue');
+                addArrow([45.428555, -65.19177], [59.086506, -68.950615], `WASAT -> X-45`);
+            planetData[slug('vega-bay')] = {};
+            planetData[slug('vega-bay')].initialOwner = 'SuperEarth';
+                initPlanet('vega-bay', 'VEGA BAY', -79.52854, 49.69178, 'blue');
+                addArrow([49.69178, -79.52854], [34.73503, -87.41281], `VEGA BAY -> WEZEN`);
+                addArrow([49.69178, -79.52854], [59.086506, -68.950615], `VEGA BAY -> X-45`);
+            planetData[slug('wezen')] = {};
+            planetData[slug('wezen')].initialOwner = 'SuperEarth';
+                initPlanet('wezen', 'WEZEN', -87.41281, 34.73503, 'blue');
+            planetData[slug('vindemitarix-prime')] = {};
+            planetData[slug('vindemitarix-prime')].initialOwner = 'SuperEarth';
+                initPlanet('vindemitarix-prime', 'VINDEMITARIX PRIME', -56.103386, 77.08251, 'blue');
+            planetData[slug('x-45')] = {};
+            planetData[slug('x-45')].initialOwner = 'SuperEarth';
+                initPlanet('x-45', 'X-45', -68.950615, 59.086506, 'blue');
+            planetData[slug('yed-prior')] = {};
+            planetData[slug('yed-prior')].initialOwner = 'SuperEarth';
+                initPlanet('yed-prior', 'YED PRIOR', -13.953374, 70.986595, 'blue');
+                addArrow([70.986595, -13.953374], [72.179184, -4.8947096], `YED PRIOR -> ZEFIA`);
+            planetData[slug('zefia')] = {};
+            planetData[slug('zefia')].initialOwner = 'SuperEarth';
+                initPlanet('zefia', 'ZEFIA', -4.8947096, 72.179184, 'blue');
+            planetData[slug('zosma')] = {};
+            planetData[slug('zosma')].initialOwner = 'SuperEarth';
+                initPlanet('zosma', 'ZOSMA', -35.552635, 88.33641, 'blue');
+                addArrow([88.33641, -35.552635], [92.63641, -19.952635], `ZOSMA -> ZZANIAH PRIME`);
+            planetData[slug('zzaniah-prime')] = {};
+            planetData[slug('zzaniah-prime')].initialOwner = 'SuperEarth';
+                initPlanet('zzaniah-prime', 'ZZANIAH PRIME', -19.952635, 92.63641, 'blue');
+                addArrow([92.63641, -19.952635], [80.50751, -17.16316], `ZZANIAH PRIME -> BLISTICA`);
+            planetData[slug('skitter')] = {};
+            planetData[slug('skitter')].initialOwner = 'SuperEarth';
+                initPlanet('skitter', 'SKITTER', 14.810904, 92.33154, 'blue');
+                addArrow([92.33154, 14.810904], [87.30191, 31.91681], `SKITTER -> EUPHORIA III`);
+            planetData[slug('euphoria-iii')] = {};
+            planetData[slug('euphoria-iii')].initialOwner = 'SuperEarth';
+                initPlanet('euphoria-iii', 'EUPHORIA III', 31.91681, 87.30191, 'blue');
+            planetData[slug('diaspora-x')] = {};
+            planetData[slug('diaspora-x')].initialOwner = 'Terminids';
+                initPlanet('diaspora-x', 'DIASPORA X', 52.672363, 74.75853, 'orange');
+                addArrow([74.75853, 52.672363], [60.701786, 66.65664], `DIASPORA X -> GEMSTONE BLUFFS`);
+            planetData[slug('gemstone-bluffs')] = {};
+            planetData[slug('gemstone-bluffs')].initialOwner = 'Terminids';
+                initPlanet('gemstone-bluffs', 'GEMSTONE BLUFFS', 66.65664, 60.701786, 'orange');
+                addArrow([60.701786, 66.65664], [53.699482, 76.577286], `GEMSTONE BLUFFS -> NABATEA SECUNDUS`);
+            planetData[slug('zagon-prime')] = {};
+            planetData[slug('zagon-prime')].initialOwner = 'Terminids';
+                initPlanet('zagon-prime', 'ZAGON PRIME', 55.758537, 48.87236, 'orange');
+                addArrow([48.87236, 55.758537], [43.328552, 48.89177], `ZAGON PRIME -> NIVEL 43`);
+            planetData[slug('omicron')] = {};
+            planetData[slug('omicron')].initialOwner = 'Terminids';
+                initPlanet('omicron', 'OMICRON', 68.38866, 48.672356, 'orange');
+                addArrow([48.672356, 68.38866], [39.55063, 63.3865], `OMICRON -> OSHAUNE`);
+                addArrow([48.672356, 68.38866], [48.87236, 55.758537], `OMICRON -> ZAGON PRIME`);
+            planetData[slug('cyberstan')] = {};
+            planetData[slug('cyberstan')].initialOwner = 'SuperEarth';
+                initPlanet('cyberstan', 'CYBERSTAN', -43.8396, 69.77152, 'blue');
+                addArrow([69.77152, -43.8396], [65.10685, -53.437202], `CYBERSTAN -> MEKBUDA`);
+        function setTimer(date, obj, prefix) {
+            var countDownDate = date.getTime();
+
+            var updateTime = function () {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                if (days < 0) days = 0;
+                //var hours = Math.floor(distance / (1000 * 60 * 60));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                if (hours < 0) hours = 0;
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                var msg = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                if (days == 0) msg = hours + "h " + minutes + "m " + seconds + "s ";
+                if (days == 0 && hours == 0) msg = minutes + "m " + seconds + "s ";
+                if (days == 0 && hours == 0 && minutes == 0) msg = seconds + "s ";
+                //document.getElementById(id).innerHTML = prefix + msg;
+                obj.html(prefix + msg);
+                if (distance < 0) {
+                    //clearInterval(x);
+                    //document.getElementById(id).innerHTML = "Any minute now!";
+                }
+            };
+            updateTime();
+            var x = setInterval(updateTime, 1000);
+        }
+        var lastUpdatedTime = new Date();
+        var updateLastUpdate = function () {
+            var now = new Date().getTime();
+            var distance = now - lastUpdatedTime;
+            var seconds = Math.floor(distance / 1000);
+            var msg = seconds + "s";
+            $('#lastupdated').html('Last Updated : ' + seconds + " seconds ago");
+        };
+        updateLastUpdate();
+        var x = setInterval(updateLastUpdate, 1000);
+        const pollingDelay = 30000;
+        const refreshTable = (data) => {
+            lastUpdatedTime = data.lastUpdate;
+            var rownum = 0;
+            const rows = [];
+            const now = new Date();
+            var wastedPlayers = 0;
+            var totalPlayers = 0;
+            var bugRate = 1000;
+            var botRate = 1000;
+            var totalRate = 0;
+
+            for (var i = 0; i < data.mn.length; i++) {
+                var planet = data.mn[i];
+                //var ownerImg = "/img/" + (planet.initialOwner == 'Terminids' ? "terminid.png" : "automaton.png");
+                planet.owner = planet.o;
+                planet.name = planet.n;
+                planet.initialOwner = planetData[slug(planet.name)].initialOwner;
+                planet.regenPerSecond = planet.rps;
+                planet.players = planet.p;
+                planet.liberated = planet.l;
+                planet.startTime = planet.s;
+                planet.endTime = planet.e;
+                planet.rate = planet.r;
+                planet.campaign = planet.c;
+                planet.completionTime = planet.ct;
+                planet.slug = slug(planet.name);
+                var ownerImg = "/img/" + (planet.owner == 2 ? "terminid.png" : planet.owner == 3 ? "automaton.png" : planet.owner == 4 ? "illuminate.png" : "unknown.png");
+                var typeImg = "/img/attack.png";
+                
+                var regenRate = (planet.regenPerSecond / 1000000) * 60 * 60 * 100;
+                if (planet.owner == 2 && regenRate < bugRate) bugRate = regenRate;
+                if (planet.owner == 3 && regenRate < botRate) botRate = regenRate;
+                var defense = false;
+                var suffix = $('<text>');
+                var majorOrder = $('<text>');
+                var title = $('<div>');
+                var timeToLiberate = planet.calculatedTime;
+                var isMajorOrder = false;
+                if (data.mo?.pl?.find(p => p == planet.name) != null) {
+                    majorOrder.html('<img width="24px" height="24px" src="/img/majororder.png" />');
+                    isMajorOrder = true;
+                }
+                totalPlayers += planet.players;
+                //if (!(planet.endTime > 0 && now < planet.endTime))
+                totalRate += planet.rate;
+                if (planet.owner == 2 && planet.rate > 0.2 && !(planet.endTime > 0 && now < planet.endTime)) totalRate += bugRate;
+                if (planet.owner == 3 && planet.rate > 0.2 && !(planet.endTime > 0 && now < planet.endTime)) totalRate += botRate;
+                if (planet.endTime > 0 && now < planet.endTime) {
+                    typeImg = "/img/defense.png";
+                    defense = true;
+                    setTimer(new Date(planet.endTime), suffix, ' ');
+                }
+                else if (planet.campaign > -1 && planet.liberated > 0.1 || (isMajorOrder && planet.owner != 1)) {
+                }
+                else {
+                    wastedPlayers += planet.players;
+                    continue;
+                }
+                title.append('<a style="color:inherit;text-decoration: none;" href="/Planets/' + planet.slug + '"><img width="18px" height="18px" src="' + typeImg + '" /> ' + planet.name + ' <img width="18px" height="18px" src="' + ownerImg + '"/></a>').append(suffix).append(suffix).append(majorOrder)
+                var rateIcon = planet.rate < -3 ? "down3" : planet.rate < -1 ? "down2" : planet.rate < -0.2 ? "down1" : planet.rate < 0.2 ? "neutral" : planet.rate < 1 ? "up1" : planet.rate < 3 ? "up2" : "up3";
+                var timer = $('<td>');
+                timer.html(planet.completionTime);
+                var percentPlayers = (100 * planet.players / 89879).toFixed(0);
+                const newrow = $('<tr>').append(($('<td>').append(title))).append(($('<td>').html(planet.liberated.toFixed(2) + '% <img width="12px" height="18px" src="/img/' + rateIcon + '.png" /><text class="d-none d-lg-inline"> (' + planet.rate.toFixed(1) + '%/hr)</text>'))).append(($('<td>').html('<text class="d-none d-lg-inline">' + (planet.players / 1000).toFixed(0) + 'K (</text>' + percentPlayers + '%<text class="d-none d-lg-inline">)</text>'))).append(timer);
+
+                var prefix = '';
+                if (defense) {
+                    if (planet.completionTime > planet.endTime) prefix = '<b>FAILING</b>: ';
+                    else prefix = 'SUCCEEDING: ';
+                    if (planet.rate == 0) prefix = 'ERROR: ';
+                }
+                if (planet.rate > 0.2 || defense) {
+                    setTimer(new Date(planet.completionTime), timer, prefix);
+                } else if (!defense) {
+                    if (planet.rate > -0.2)
+                        timer.html('Stalemate');
+                    else
+                        timer.html('<b>LOSING GROUND</b>. Send Reinforcements!');
+                }
+                newrow[0].dataset.rownum = ++rownum;
+                rows.push(newrow);
+            }
+            $('#enemyforcesrate').html('Terminid Forces : -' + bugRate.toFixed(2) + '%/hr on each planet</br>Automaton Forces : -' + botRate.toFixed(2) + '%/hr on each planet');
+            $('#ratetotal').html(totalRate.toFixed(2) + '%/hr');
+            $('#playertotal').html((totalPlayers / 1000).toFixed(0) + 'K');
+            var percentWasted = (100 * wastedPlayers / totalPlayers).toFixed(0);
+            const wastedRow = $('<tr>').append(($('<td>').append('Other Planets**'))).append(($('<td>').html('0%'))).append(($('<td>').html('<text class="d-none d-lg-inline">' + (wastedPlayers / 1000.0).toFixed(0) + 'K (</text>' + percentWasted + '%<text class="d-none d-lg-inline">)</text>'))).append($('<td>'));
+            wastedRow[0].dataset.rownum = ++rownum;
+            rows.push(wastedRow);
+            $('#eventTable tbody').empty().append(rows);
+            
+            for (var key of Object.keys(planetData)) {
+                var slugKey = slug(key);
+                var planet = data.mn.find(e=>slug(e.n) == key);
+                if (key == "super-earth"){
+                    planetData[slugKey]['activeTooltip'].setOpacity(0.9);
+                    planetData[slugKey]['activeTooltip'].setContent(planet?.name + '<br>' + planet?.players + ' players');
+                    continue;
+                }
+                planetData[slugKey]['glowCircle'].options.fillOpacity = planetData[slugKey]['glowCircle'].options.fill = planetData[slugKey]['redSemicircle'].options.fillOpacity = planetData[slugKey]['greenSemicircle'].options.fillOpacity = planetData[slugKey]['activeCircle'].options.opacity  = planetData[slugKey]['emptyCircle'].options.opacity = 0;
+                planetData[slugKey]['glowCircle'].options.interactive = planetData[slugKey]['redSemicircle'].options.interactive = planetData[slugKey]['greenSemicircle'].options.interactive = planetData[slugKey]['activeCircle'].options.interactive  = planetData[slugKey]['emptyCircle'].options.interactive = false;
+                if (planet == null){
+                    planetData[slugKey]['emptyTooltip'].setOpacity(0.9);
+                    //planetData[slugKey]['emptyTooltip'].setContent(key);
+                    planetData[slugKey]['emptyCircle'].options.interactive = true;
+                    planetData[slugKey]['emptyCircle'].options.fillOpacity = 0.5;
+                    planetData[slugKey]['emptyCircle'].options.opacity = 1;
+                    //var io = planetData[slugKey]['initialOwner'];
+                   // var io = planet.owner;
+                   // console.log(io);
+                    //planetData[slugKey]['emptyCircle'].options.color = io == 'SuperEarth' ? 'blue' : io == 'Terminids' ? 'orange' : io == 'Automatons' ? 'red' : 'lightpurple';
+                    planetData[slugKey]['emptyCircle'].redraw();
+                    continue;
+                }
+                var isMajorOrder = false;
+                if (data.mo?.pl?.find(p => p == planet.name) != null) {
+                    planetData[slugKey]['glowCircle'].options.fillOpacity = planetData[slugKey]['glowCircle'].options.opacity = 1;
+                }
+                planetData[slugKey]['glowCircle'].redraw();
+                if (planet.endTime > 0 || planet.campaign > -1)
+                {
+                    planetData[slugKey]['campaignTooltip'].setOpacity(0.9);
+                    planetData[slugKey]['redSemicircle'].options.interactive = planetData[slugKey]['redSemicircle'].options.interactive = true;
+                    planetData[slugKey]['redSemicircle'].options.fillOpacity = planetData[slugKey]['redSemicircle'].options.opacity = 1;
+                    if (planet.liberated > 0.1){
+                        planetData[slugKey]['greenSemicircle'].options.opacity = planetData[slugKey]['greenSemicircle'].options.fillOpacity = 1;
+                        planetData[slugKey]['greenSemicircle'].options.stopAngle = planet.liberated * 360 / 100;
+                    }
+                    planetData[slugKey]['greenSemicircle'].redraw();
+                    planetData[slugKey]['redSemicircle'].redraw();
+                }
+                planetData[slugKey]['activeCircle'].options.color = planetData[slugKey]['emptyCircle'].options.color = planet.owner == 1 ? 'blue' : planet.owner == 2 ? 'orange' : planet.owner == 3 ? 'red' : 'lightpurple';
+                
+                if (planet.endTime > 0)
+                {
+                    var timePct = 100 * (now - planet.startTime) / (planet.endTime - planet.startTime);
+                    var tooltip = '<b>' + planet.name + '</b><br>' + planet.liberated.toFixed(4) + '%<br>' + planet.players + ' players<br>Rate: ' + planet.rate.toFixed(2) + '%/hr<br>End at ' + new Date(planet.endTime).toLocaleString() + ' (' + timePct.toFixed(2) + ' %)';
+                    planetData[slugKey]['campaignTooltip'].setContent(tooltip);
+                }
+                else if (planet.campaign > -1)
+                {
+                    var regenRate = (planet.regenPerSecond / 1000000) * 60 * 60 * 100;
+                    var playerForces = planet.rate + regenRate;
+                    var tooltip = '<b>' + planet.name + '</b><br>' + planet.liberated.toFixed(4) + '%<br>' + planet.players + ' players<br>Super Earth Forces: ' + 'Negligible' + '<br>Enemy Forces : -' + ((planet.regenPerSecond / 1000000) * 60 * 60 * 100).toFixed(2) + '%/hr';
+                    if (planet.liberated > 0.1 )
+                        tooltip = '<b>' + planet.name + '</b><br>' + planet.liberated.toFixed(4) + '%<br>' + planet.players + ' players<br>Super Earth Forces: ' + playerForces.toFixed(2) + '%<br>Enemy Forces : -' + ((planet.regenPerSecond / 1000000) * 60 * 60 * 100).toFixed(2) + '%/hr<br>Rate: ' + planet.rate.toFixed(2) + '%/hr';
+                    planetData[slugKey]['campaignTooltip'].setContent(tooltip);
+                }
+                else if (planet.players > 0)
+                {
+                    planetData[slugKey]['activeCircle'].options.interactive = true;
+                    planetData[slugKey]['activeTooltip'].setOpacity(0.9);
+                    planetData[slugKey]['activeTooltip'].setContent(planet.name + '<br>' + planet.players + ' players');
+                    planetData[slugKey]['activeCircle'].options.fillOpacity = 0.5;
+                    planetData[slugKey]['activeCircle'].options.opacity = 1;
+                    planetData[slugKey]['activeCircle'].redraw();
+                }
+            }
+
+            setTimeout(fetchData, pollingDelay);
+        }
+        function fetchData() {
+            if (document.hidden === true) {
+                setTimeout(fetchData, 500);
+                return;
+            }
+            url = '/update.json';
+            $.getJSON(url, function (data) { refreshTable(data) });
+        }
+
+        document.addEventListener("DOMContentLoaded", (event) => {
+            fetchData();
+        });
+
+        campaign.addTo(map);
+        majorOrderLayer.addTo(map);
+        personalOrdersLayer.addTo(map);
+        warStatsLayer.addTo(map);
+        //connections.addTo(map);
+       //activePlayers.addTo(map);
+       // others.addTo(map);
+       
+        var overlayMaps = {};
+        overlayMaps['campaign'] = campaign;
+        overlayMaps['active players'] = activePlayers;
+        overlayMaps['empty'] = others;
+        overlayMaps['supply lines'] = connections;
+        overlayMaps['major order'] = majorOrderLayer;
+        overlayMaps['personal orders'] = personalOrdersLayer;
+        overlayMaps['war stats'] = warStatsLayer;
+        var layerControl = L.control.layers(null, overlayMaps).addTo(map);
+            L.control.custom({ id: 'warstats', position: 'topleft', content: '<div><p>Mission Win Rate: 90%, 130.79 M / 144.34 M<br>Bug Kills: 13.30 B<br>Bot Kills: 5.39 B<br>Bullet Acc : 100%, 125.70 B / 119.95 B<br>Deaths: 567.65 M<br>Team Kills: 75.81 M</p>', style: { margin: '10px', padding: '0px 0 0 0', width: '400px', 'text-align': 'left', 'pointer-events': 'none' } }).addTo(map);
+            L.control.custom({ id: 'personalorder', position: 'bottomleft', content: '<div><p><b>PERSONAL ORDER</b></br>unk<br>Rewards 15 Medals<br>Time Left 00hr 08m', style: { 'text-align': 'left', 'pointer-events': 'none' } }).addTo(map);
+        map.on('layeradd', function (e) {
+            if (e.layer == majorOrderLayer) {
+                $('#majororder').show();
+            }
+            if (e.layer == personalOrdersLayer) {
+                $('#personalorder').show();
+            }
+            if (e.layer == warStatsLayer) {
+                $('#warstats').show();
+            }
+        });
+        map.on('layerremove', function (e) {
+            if (e.layer == majorOrderLayer) {
+                $('#majororder').hide();
+            }
+            if (e.layer == personalOrdersLayer) {
+                $('#personalorder').hide();
+            }
+            if (e.layer == warStatsLayer) {
+                $('#warstats').hide();
+            }
+        });
+    </script>
+</div>
+        </main>
+    </div>
+
+    <footer b-8ek7qo4bz6 class="border-top text-muted">
+		<section b-8ek7qo4bz6 class="p-4">
+			<div b-8ek7qo4bz6 class="container text-center">
+			    <div b-8ek7qo4bz6 class="row">
+			        <div b-8ek7qo4bz6 class="col">
+				        <h6 b-8ek7qo4bz6 class="text-uppercase fw-bold mb-4">Required generics</h6>
+				        <p b-8ek7qo4bz6><a b-8ek7qo4bz6 href="/privacy" class="text-reset">Privacy Policy</a></p>
+				        <p b-8ek7qo4bz6><a b-8ek7qo4bz6 href="/tos" class="text-reset">Terms of Service</a></p>
+				        <p b-8ek7qo4bz6>&copy; 2024 - shalzuth</p>
+			        </div>
+			        <div b-8ek7qo4bz6 class="col">
+				        <h6 b-8ek7qo4bz6 class="text-uppercase fw-bold mb-4">Other sites</h6>
+				        <p b-8ek7qo4bz6><a b-8ek7qo4bz6 href="https://d4armory.io" class="text-reset">Diablo 4 Armory</a></p>
+				        <p b-8ek7qo4bz6><a b-8ek7qo4bz6 href="https://warcraftrumble.gg" class="text-reset">Warcraft Rumble DB</a></p>
+				        <p b-8ek7qo4bz6><a b-8ek7qo4bz6 href="https://palworldtrainer.com" class="text-reset">PalWorld Trainer</a></p>
+			        </div>
+			        <div b-8ek7qo4bz6 class="col">
+				        <h6 b-8ek7qo4bz6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                        <p b-8ek7qo4bz6><a b-8ek7qo4bz6 href="https://helldivers.io/discord" class="text-reset">Discord</a></p>
+				        <p b-8ek7qo4bz6>shalzuth @ gmail</p>
+			        </div>
+			    </div>
+			</div>
+			<div b-8ek7qo4bz6 class="text-center p-4">
+                This site is fan-made and not affiliated with Arrowhead Game Studios in any way.
+			</div>
+		</section>
+    </footer>
+
+    <script src="/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo"></script>
+
+    
+</body>
+</html>
